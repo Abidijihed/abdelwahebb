@@ -85,7 +85,7 @@ export function Home() {
               <Typography className="mb-8 font-normal text-blue-gray-500">
                 Une jeune et belle femme s’arrête au bord d’une clairière donnant sur la mer. La vue du haut de la montagne l’émerveille. Elle passe un agréable moment à admirer la mer et le paysage environnant. Elle se régale de fruits et se repose par terre. Elle enlève par la suite ses vêtements, met ses deux pièces et quitte la clairière. Elle se baigne dans la mer. Quand elle regagne la clairière, elle est surprise de trouver un jeune homme avec qui elle discutera pendant longtemps. Alors qu’elle lui parle de nature, de beauté, d’amour et de liberté, il lui parle de son projet de construction d’un complexe touristique et beaucoup d’argent à gagner !
               </Typography>
-              <Button>Edit</Button>
+              {/* <Button>Edit</Button> */}
             </div>
             <div className="mx-auto mt-8 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
               <Card className="shadow-lg shadow-gray-500/10">
@@ -117,7 +117,7 @@ export function Home() {
               <Typography className="mb-8 font-normal text-blue-gray-500">
                 Une jeune et belle femme passe une grande partie de la matinée à se baigner seule dans une mer calme, puis elle s’installe au sommet d’une montagne pour avoir une vue agréable sur la mer. Elle rencontre un jeune homme de passage. Ils s’attirent l’un vers l’autre sans qu’ils révèlent leurs sentiments, mais leurs projets de vie sont divergents. Quels choix vont-ils faire -chacun de son côté- après une longue discussion ?
               </Typography>
-              <Button>Edit</Button>
+              {/* <Button>Edit</Button> */}
             </div>
             <div className="mx-auto mt-8 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
 
@@ -148,7 +148,7 @@ export function Home() {
               </Typography>
               <Typography className="mb-8 font-normal text-blue-gray-500">
                 Une charmante femme fait une randonnée solitaire sur une plage déserte. Elle trouve un parasol et une canne à pêche installés au bord de l’eau. Elle se baigne puis elle s’allonge pour bronzer. Un jeune homme vient de loin et s’arrête prés de la canne à pêche et du parasol. Elle comprends qu’elle s’est installé dans son territoire  à lui. Que vont-ils faire, chacun de son coté, pour se faire séduire. Ils finissent par prendre un rendez-vous amoureux dans la cabane au coucher du soleil.              </Typography>
-              <Button>Edit</Button>
+              {/* <Button>Edit</Button> */}
             </div>
             <div className="mx-auto mt-8 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
 
@@ -180,7 +180,7 @@ export function Home() {
               <Typography className="mb-8 font-normal text-blue-gray-500">
                 Un jeune homme fait la pêche pour le plaisir. Il passe une matinée sur une plage déserte et ensoleillée dans le calme et la sérénité sans pouvoir pêcher de poissons. Une belle et jeune femme arrive seule. Ils sympathisent et passent la journée ensemble a s’amuser et à jouer. Mais à la fin de la journée, la jeune femme semble choisir une suite personnelle à cette belle aventure amoureuse.
               </Typography>
-              <Button>Edit</Button>
+              {/* <Button>Edit</Button> */}
             </div>
             <div className="mx-auto mt-8 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
 
@@ -419,12 +419,13 @@ export function Home() {
               color="blue-gray"
               id="naturetitle"
             >
-              4. Non violence
+              4. Cinéma <br/> de non-violence
             </Typography><br />
 
             <Typography className="mb-8 font-normal text-blue-gray-500">
               La violence est le véritable thème et style du cinéma commercial.
               Ériger la violence en spectacle m’a toujours indigné et révolté.
+              Coming soon...
             </Typography>
 
 
@@ -452,8 +453,8 @@ export function Home() {
 
 
           </div><br /><br /><br/><br/>
-          <PageTitle heading="Want to work with us?">
-            Complete this form and we will get back to you in 24 hours.
+          <PageTitle heading="Want to contact us?">
+            Complete this form and we will get back to you .
           </PageTitle>
           <form className="mx-auto mt-12 max-w-3xl text-center">
             <div className="mb-8 flex gap-8">
