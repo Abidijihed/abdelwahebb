@@ -18,6 +18,7 @@ import film5 from '../assets/lastfilm5.mp4'
 import film4 from '../assets/lastfilm4.mp4'
 import film3 from '../assets/lastfilm3.mp4'
 import film2 from '../assets/lastfilm2.mp4'
+import Carousel from './carousel'
 export function Home() {
 
   return (
@@ -201,8 +202,18 @@ export function Home() {
           </div>
 
         </div>
-      </section>
-
+      </section><br/>
+      <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
+            <Typography
+              variant="h2"
+              className="mb-3 font-bold"
+              color="blue-gray"
+             
+            >
+              Nature, beauté, amour et liberté
+            </Typography>
+            </div>
+                <Carousel />
       <section className="relative bg-blue-gray-50/50 py-24 px-4">
         <div className="container mx-auto">
           <PageTitle heading="Mon cinéma">

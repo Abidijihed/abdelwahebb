@@ -4,3 +4,15 @@
 #titlenatur {
     margin-bottom: -1px;
 }
+div#carousel {
+    margin-left: 31.5%;
+    width: 500px;
+    height: 500px;
+    /* justify-content: right; */
+    /* align-items: self-start; */
+    display: flex;
+    text-align: center;
+}
+.d-block{
+    height: 500px !important;
+}
