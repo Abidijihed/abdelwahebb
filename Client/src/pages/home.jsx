@@ -9,14 +9,17 @@ import {
   Input,
   Textarea,
 } from "@material-tailwind/react";
-import Edit from './edit'
 import { UsersIcon } from "@heroicons/react/24/solid";
 import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCard, TeamCard } from "@/widgets/cards";
 import { featuresData, teamData, contactData } from "@/data";
-
+import "./Home.css"
+import film5 from '../assets/lastfilm5.mp4'
+import film4 from '../assets/lastfilm4.mp4'
+import film3 from '../assets/lastfilm3.mp4'
+import film2 from '../assets/lastfilm2.mp4'
 export function Home() {
-  
+
   return (
     <>
       <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
@@ -24,105 +27,190 @@ export function Home() {
         <div className="absolute top-0 h-full w-full bg-black/75 bg-cover bg-center" />
         <div className="max-w-8xl container relative mx-auto">
           <div className="flex flex-wrap items-center">
-            <div className="ml-auto mr-auto w-full px-4 text-center lg:w-8/12">
+            <div className="ml-auto mr-auto w-full px-4 text-center lg:w-8/12" id="realisateur">
               <Typography
-                variant="h1"
+                variant="h2"
                 color="white"
                 className="mb-6 font-black"
-                fontFamily= "Segoe Script !important"
-                 fontWeight= "600"
+                fontFamily="Segoe Script !important"
+                fontWeight="600"
               >
-                Artistephilosophe Réalisateur
+                Réalisateur
+
+
               </Typography>
-              <Typography variant="lead" color="white" className="opacity-80">
-                This is a simple example of a Landing Page you can build using
-                Material Tailwind. It features multiple components based on the
-                Tailwind CSS and Material Design by Google.
+
+              <Typography
+                variant="h5"
+                color="white"
+                className="mb-6 font-black"
+
+                fontWeight="400"
+              >
+                Mon cinéma est d’inspiration philosophique, esthétique et écologique.
+
+
+
               </Typography>
+
             </div>
           </div>
         </div>
       </div>
       <section className="-mt-32 bg-gray-50 px-4 pb-20 pt-4">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {featuresData.map(({ color, title, icon, description }) => (
-              <FeatureCard
-                key={title}
-                color={color}
-                title={title}
-                icon={React.createElement(icon, {
-                  className: "w-5 h-5 text-white",
-                })}
-                description={description}
-              />
-            ))}
-          </div>
+          <br /><br /> <br /><br />
+
           <div className="mt-32 flex flex-wrap items-center">
             <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
-              <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-white p-3 text-center shadow-lg">
-                <UsersIcon className="h-6 w-6 text-blue-gray-900" />
-              </div>
+              <Typography
+                variant="h2"
+                color="blue-gray"
+                className="mb-6 font-black"
+
+                fontWeight="300"
+              >
+                Mes films
+
+
+
+              </Typography>
               <Typography
                 variant="h3"
                 className="mb-3 font-bold"
                 color="blue-gray"
               >
-                Working with us is a pleasure
+                Le réveil de l’instinct
               </Typography>
               <Typography className="mb-8 font-normal text-blue-gray-500">
-                Don't let your uses guess by attaching tooltips and popoves to
-                any element. Just make sure you enable them first via
-                JavaScript.
-                <br />
-                <br />
-                The kit comes with three pre-built pages to help you get started
-                faster. You can change the text and images and you're good to
-                go. Just make sure you enable them first via JavaScript.
+                Une jeune et belle femme s’arrête au bord d’une clairière donnant sur la mer. La vue du haut de la montagne l’émerveille. Elle passe un agréable moment à admirer la mer et le paysage environnant. Elle se régale de fruits et se repose par terre. Elle enlève par la suite ses vêtements, met ses deux pièces et quitte la clairière. Elle se baigne dans la mer. Quand elle regagne la clairière, elle est surprise de trouver un jeune homme avec qui elle discutera pendant longtemps. Alors qu’elle lui parle de nature, de beauté, d’amour et de liberté, il lui parle de son projet de construction d’un complexe touristique et beaucoup d’argent à gagner !
               </Typography>
-              <Button variant="outlined">read more</Button>
+              <Button>Edit</Button>
             </div>
-            <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
-            <Edit />
-          
+            <div className="mx-auto mt-8 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
+              <Card className="shadow-lg shadow-gray-500/10">
+                {/* <CardHeader className=""> */}
+                <p style={{ textAlign: "center" ,color:"black" ,size:"12px"}}> Bandes annonce
+                du quatrième film de <br/>Abdelwaheb Bouden
+                </p>
+                {/* </CardHeader> */}
+                <CardBody>
+                  <video width="320" height="240" controls>
+                    <source src={film5} type="video/mp4" />
+                  </video>
+
+                </CardBody>
+              </Card>
+
             </div>
           </div>
-        </div>
-      </section>
-      <section className="px-4 pt-20 pb-48">
-        <div className="container mx-auto">
-          <PageTitle heading="Here are our heroes">
-            According to the National Oceanic and Atmospheric Administration,
-            Ted, Scambos, NSIDClead scentist, puts the potentially record
-            maximum.
-          </PageTitle>
-          <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
-            {teamData.map(({ img, name, position, socials }) => (
-              <TeamCard
-                key={name}
-                img={img}
-                name={name}
-                position={position}
-                socials={
-                  <div className="flex items-center gap-2">
-                    {socials.map(({ color, name }) => (
-                      <IconButton key={name} color={color} variant="text">
-                        <i className={`fa-brands text-lg fa-${name}`} />
-                      </IconButton>
-                    ))}
-                  </div>
-                }
-              />
-            ))}
+          <div className="mt-32 flex flex-wrap items-center">
+            <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
+
+              <Typography
+                variant="h3"
+                className="mb-3 font-bold"
+                color="blue-gray"
+              >
+                Quand la mer séduit la montagne
+              </Typography>
+              <Typography className="mb-8 font-normal text-blue-gray-500">
+                Une jeune et belle femme passe une grande partie de la matinée à se baigner seule dans une mer calme, puis elle s’installe au sommet d’une montagne pour avoir une vue agréable sur la mer. Elle rencontre un jeune homme de passage. Ils s’attirent l’un vers l’autre sans qu’ils révèlent leurs sentiments, mais leurs projets de vie sont divergents. Quels choix vont-ils faire -chacun de son côté- après une longue discussion ?
+              </Typography>
+              <Button>Edit</Button>
+            </div>
+            <div className="mx-auto mt-8 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
+
+              <Card className="shadow-lg shadow-gray-500/10">
+                {/* <CardHeader className=""> */}
+                <p style={{ textAlign: "center" ,color:"black" ,size:"12px"}}> Bandes annonce
+                du troisième film de <br/>Abdelwaheb Bouden
+                </p>
+                {/* </CardHeader> */}
+                <CardBody>
+                  <video width="320" height="240" controls>
+                    <source src={film4} type="video/mp4" />
+                  </video>
+
+                </CardBody>
+              </Card>
+            </div>
           </div>
+          <div className="mt-32 flex flex-wrap items-center">
+            <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
+
+              <Typography
+                variant="h3"
+                className="mb-3 font-bold"
+                color="blue-gray"
+              >
+                Ce réel qui m'échappe
+              </Typography>
+              <Typography className="mb-8 font-normal text-blue-gray-500">
+                Une charmante femme fait une randonnée solitaire sur une plage déserte. Elle trouve un parasol et une canne à pêche installés au bord de l’eau. Elle se baigne puis elle s’allonge pour bronzer. Un jeune homme vient de loin et s’arrête prés de la canne à pêche et du parasol. Elle comprends qu’elle s’est installé dans son territoire  à lui. Que vont-ils faire, chacun de son coté, pour se faire séduire. Ils finissent par prendre un rendez-vous amoureux dans la cabane au coucher du soleil.              </Typography>
+              <Button>Edit</Button>
+            </div>
+            <div className="mx-auto mt-8 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
+
+              <Card className="shadow-lg shadow-gray-500/10">
+                {/* <CardHeader className=""> */}
+                <p style={{ textAlign: "center" ,color:"black" ,size:"12px"}}> Bandes annonce
+                du deuxième film de <br/>Abdelwaheb Bouden
+                </p>
+                {/* </CardHeader> */}
+                <CardBody>
+                  <video width="320" height="240" controls>
+                    <source src={film3} type="video/mp4" />
+                  </video>
+
+                </CardBody>
+              </Card>
+            </div>
+          </div>
+          <div className="mt-32 flex flex-wrap items-center">
+            <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
+
+              <Typography
+                variant="h3"
+                className="mb-3 font-bold"
+                color="blue-gray"
+              >
+                La mer aussi aime le blues
+              </Typography>
+              <Typography className="mb-8 font-normal text-blue-gray-500">
+              Un jeune homme fait la pêche pour le plaisir. Il passe une matinée sur une plage déserte et ensoleillée dans le calme et la sérénité sans pouvoir pêcher de poissons. Une belle et jeune femme arrive seule. Ils sympathisent et passent la journée ensemble a s’amuser et à jouer. Mais à la fin de la journée, la jeune femme semble choisir une suite personnelle à cette belle aventure amoureuse.
+               </Typography>
+              <Button>Edit</Button>
+            </div>
+            <div className="mx-auto mt-8 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
+
+              <Card className="shadow-lg shadow-gray-500/10">
+                {/* <CardHeader className=""> */}
+                <p style={{ textAlign: "center" ,color:"black" ,size:"12px"}}> Bandes annonce
+                du premier film de <br/>Abdelwaheb Bouden
+                </p>
+                {/* </CardHeader> */}
+                <CardBody>
+                  <video width="320" height="240" controls>
+                    <source src={film2} type="video/mp4" />
+                  </video>
+
+                </CardBody>
+              </Card>
+            </div>
+          </div>
+
         </div>
       </section>
+
       <section className="relative bg-blue-gray-50/50 py-24 px-4">
         <div className="container mx-auto">
-          <PageTitle heading="Build something">
-            Put the potentially record low maximum sea ice extent tihs year down
-            to low ice. According to the National Oceanic and Atmospheric
-            Administration, Ted, Scambos.
+        <PageTitle heading="Mon cinéma">
+           
+          </PageTitle><br />
+          <PageTitle heading="Conception et Style" id="consetpion">
+          Mon cinéma est d’inspiration philosophique,<br/> esthétique et écologique.
+
           </PageTitle>
           <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
             {contactData.map(({ title, icon, description }) => (

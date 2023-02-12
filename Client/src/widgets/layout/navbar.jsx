@@ -10,7 +10,7 @@ import {
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-export function Navbar({ brandName, routes, action }) {
+export function Navbar({brandTitle, brandName, routes, action }) {
   const [openNav, setOpenNav] = React.useState(false);
 
   React.useEffect(() => {
@@ -65,7 +65,8 @@ export function Navbar({ brandName, routes, action }) {
       <div className="container mx-auto flex items-center justify-between text-white">
         <Link to="/">
           <Typography className="mr-4 ml-2 cursor-pointer py-1.5 font-bold">
-            {brandName}
+           <h1 style={{fontSize:"40px"}}> {brandName}</h1>
+            {brandTitle}
           </Typography>
         </Link>
         <div className="hidden lg:block">{navList}</div>
@@ -89,7 +90,9 @@ export function Navbar({ brandName, routes, action }) {
 }
 
 Navbar.defaultProps = {
-  brandName: "ABDELWAHEB BOUDEN",
+  brandName: "Abdelwaheb BOUDEN",
+  brandTitle: "Artistephilosophe",
+  
   action: (
     <a
       href="https://www.creative-tim.com/product/material-tailwind-kit-react"
@@ -102,6 +105,7 @@ Navbar.defaultProps = {
 
 Navbar.propTypes = {
   brandName: PropTypes.string,
+  brandTitle:PropTypes.string,
   routes: PropTypes.arrayOf(PropTypes.object).isRequired,
   action: PropTypes.node,
 };

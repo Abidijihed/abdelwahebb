@@ -16,7 +16,7 @@ app.use(
 );
 
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
  
   res.send(path.resolve(__dirname, './Client/dist', 'index.html'));
 });

@@ -40,7 +40,7 @@ import 'react-phone-input-2/lib/style.css'
       formData.append('upload_preset', 'kgiezron')
       await axios.post('http://api.cloudinary.com/v1_1/dm1xlu8ce/upload', formData).then((res) => {
      
-      axios.post('http://localhost:5555/api/Create/newuser',{
+      axios.post('http://164.90.183.141/api/Create/newuser',{
         username:username,
         email:email,
         phone_number:phone_number,
