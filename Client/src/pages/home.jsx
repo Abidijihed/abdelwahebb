@@ -108,7 +108,7 @@ export function Home() {
                           size: "12px",
                         }}
                       >
-                        Bande annonce du quatrième film de <br />
+                        Bande annonce du {el.number} film de <br />
                         Abdelwaheb Bouden
                       </p>
 

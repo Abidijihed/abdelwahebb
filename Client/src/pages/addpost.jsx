@@ -5,6 +5,7 @@ import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import axios from "axios"
 import React, { Component } from 'react'
 import { Form } from 'react-bootstrap';
+import { number } from 'prop-types';
     
     export  class addpost extends Component {
         constructor(){
@@ -15,6 +16,7 @@ import { Form } from 'react-bootstrap';
                 title:"",
                 content:"",
                 comments:"",
+                number:"",
                 likes:0
             }
         }
@@ -24,6 +26,11 @@ import { Form } from 'react-bootstrap';
         handleShow(){
             this.setState({show:true})
         }
+          handleChange(e){ 
+     
+    this.setState({[e.target.name]:e.target.value})
+   
+  }
      async  addnewpost(){
         const {imageselected,comments,title,likes,content}=this.state
         var datavideo=''
@@ -40,21 +47,24 @@ import { Form } from 'react-bootstrap';
           datavideo=''
          }
          console.log(datavideo)
-            axios.post("http://www.abdelwahebbouden.com/api/Create/NewPoste",{
-              title:"test",
-              content:"content",
-              views:4,
-              comments:"comments",
-              likes:4,
-              video:datavideo
-            }).then((res)=>{
-              if(res.data==="poste done"){
-                window.location.href="http://www.abdelwahebbouden.com"
-              
-              }
-            }).catch((err)=>{
-              console.log(err)
-            })
+            axios
+              .post("http://www.abdelwahebbouden.com/api/Create/NewPoste", {
+                title: title,
+                content: content,
+                views: 0,
+                comments: "comments",
+                likes: 0,
+                number: number,
+                video: datavideo,
+              })
+              .then((res) => {
+                if (res.data === "poste done") {
+                  window.location.href = "http://www.abdelwahebbouden.com";
+                }
+              })
+              .catch((err) => {
+                console.log(err);
+              });
         })
       
         this.handleClose()
@@ -62,43 +72,68 @@ import { Form } from 'react-bootstrap';
       render() {
         const {show}=this.state
         return (
-            <>
-      <Button variant="primary" onClick={()=>this.handleShow()} id="postbutton">
-        Add New Post
-      </Button>
+          <>
+            <Button
+              variant="primary"
+              onClick={() => this.handleShow()}
+              id="postbutton"
+            >
+              Add New Post
+            </Button>
 
-      <Modal show={show} onHide={()=>this.handleClose()}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Title</Form.Label>
-        <Form.Control type="text" placeholder="Enter email" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Content</Form.Label>
-        <Form.Control type="text" placeholder="Enter email" />
-      </Form.Group>
-      <input type="file" accept="image/*,.mp4" name="image-upload" id="input" onChange={(event) => this.setState({ imageselected: event.target.files[0] })} />
-                      <div className="label">
-                        <label className="image-upload" htmlFor="input">
-                        <AddAPhotoIcon />
-						Choose your Photo
-					</label>
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={()=>this.handleClose()}id="postbutton1">
-            Close
-          </Button>
-          <Button variant="primary" onClick={()=>this.addnewpost()} id="postbutton">
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
-        )
+            <Modal show={show} onHide={() => this.handleClose()}>
+              <Modal.Header closeButton>
+                <Modal.Title>Modal heading</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <Form.Group className="mb-3" controlId="formBasicTitle">
+                  <Form.Label>Title</Form.Label>
+                  <Form.Control type="text" placeholder="Enter Title"name='title'onChange={(e)=>this.handleChange(e)} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicContent">
+                  <Form.Label>Content</Form.Label>
+                  <Form.Control type="text" placeholder="Enter Content"  name='content'onChange={(e)=>this.handleChange(e)}/>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicNumber">
+                  <Form.Label>number</Form.Label>
+                  <Form.Control type="text" placeholder="Enter Number"name='number'onChange={(e)=>this.handleChange(e)} />
+                </Form.Group>
+
+                <input
+                  type="file"
+                  accept="image/*,.mp4"
+                  name="image-upload"
+                  id="input"
+                  onChange={(event) =>
+                    this.setState({ imageselected: event.target.files[0] })
+                  }
+                />
+                <div className="label">
+                  <label className="image-upload" htmlFor="input">
+                    <AddAPhotoIcon />
+                    Choose your Photo
+                  </label>
+                </div>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button
+                  variant="secondary"
+                  onClick={() => this.handleClose()}
+                  id="postbutton1"
+                >
+                  Close
+                </Button>
+                <Button
+                  variant="primary"
+                  onClick={() => this.addnewpost()}
+                  id="postbutton"
+                >
+                  Save Changes
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          </>
+        );
       }
     }
     

@@ -59,10 +59,7 @@ import 'react-phone-input-2/lib/style.css'
   handleChange(e){ 
      
     this.setState({[e.target.name]:e.target.value})
-    
-    console.log(
-      {[e.target.name]:e.target.value}
-    )
+   
   }
   render() {
     const {phone_number}= this.state
