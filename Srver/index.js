@@ -31,11 +31,13 @@ const config = {
 const nms = new NodeMediaServer(config);
 nms.run();
 
-app.use(cors({
-  origin:'*', 
-  credentials:true,            //access-control-allow-credentials:true
-  optionSuccessStatus:200
-}));
+app.use(
+  cors({
+    origin: "http://www.abdelwahebbouden.com/",
+    credentials: true, //access-control-allow-credentials:true
+    optionSuccessStatus: 200,
+  })
+);
 
 app.use(express.json());
 app.use(cookieParser())

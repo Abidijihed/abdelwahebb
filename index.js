@@ -8,9 +8,9 @@ app.use(cookieParser())
 app.use(express.static(path.resolve(__dirname, './Client/dist')));
 
 app.use(
-  '/',
+  "/",
   createProxyMiddleware({
-    target: '*',
+    target: "http://www.abdelwahebbouden.com/",
     changeOrigin: false,
   })
 );
