@@ -49,8 +49,8 @@ import { Form } from 'react-bootstrap';
               video:datavideo
             }).then((res)=>{
               if(res.data==="poste done"){
-                // window.location.href="http://www.abdelwahebbouden.com"
-                console.log('aaaaaaaaaa')
+                window.location.href="http://www.abdelwahebbouden.com"
+              
               }
             }).catch((err)=>{
               console.log(err)

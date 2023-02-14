@@ -71,28 +71,20 @@ axios.get('http://www.abdelwahebbouden.com/api/get/allpost').then((res)=>{
           <br /><br /> <br /><br />
 
           <div className="mt-32 flex flex-wrap items-center">
-            <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
-              <Typography
-                variant="h2"
-                color="blue-gray"
-                className="mb-6 font-black"
-
-                fontWeight="300"
-              >
-                Mes films
-
-
-
-              </Typography>
+           {data.map((el)=>{
+            return(
+              <>
+<div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
+              
               <Typography
                 variant="h3"
                 className="mb-3 font-bold"
                 color="blue-gray"
               >
-                Le réveil de l’instinct
+                {el.title}
               </Typography>
               <Typography className="mb-8 font-normal text-blue-gray-500">
-                Une jeune et belle femme s’arrête au bord d’une clairière donnant sur la mer. La vue du haut de la montagne l’émerveille. Elle passe un agréable moment à admirer la mer et le paysage environnant. Elle se régale de fruits et se repose par terre. Elle enlève par la suite ses vêtements, met ses deux pièces et quitte la clairière. Elle se baigne dans la mer. Quand elle regagne la clairière, elle est surprise de trouver un jeune homme avec qui elle discutera pendant longtemps. Alors qu’elle lui parle de nature, de beauté, d’amour et de liberté, il lui parle de son projet de construction d’un complexe touristique et beaucoup d’argent à gagner !
+              {el.content}
               </Typography>
               {/* <Button>Edit</Button> */}
             </div>
@@ -105,114 +97,19 @@ axios.get('http://www.abdelwahebbouden.com/api/get/allpost').then((res)=>{
                 {/* </CardHeader> */}
                 <CardBody>
                   <video width="320" height="240" controls>
-                    <source src={film5} type="video/mp4" />
+                    <source src={el.video} type="video/mp4" />
                   </video>
 
                 </CardBody>
               </Card>
-
+              </div>
+              </>
+            )
+           }) }
             </div>
-          </div>
-          <div className="mt-32 flex flex-wrap items-center">
-            <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
-
-              <Typography
-                variant="h3"
-                className="mb-3 font-bold"
-                color="blue-gray"
-              >
-                Quand la mer séduit la montagne
-              </Typography>
-              <Typography className="mb-8 font-normal text-blue-gray-500">
-                Une jeune et belle femme passe une grande partie de la matinée à se baigner seule dans une mer calme, puis elle s’installe au sommet d’une montagne pour avoir une vue agréable sur la mer. Elle rencontre un jeune homme de passage. Ils s’attirent l’un vers l’autre sans qu’ils révèlent leurs sentiments, mais leurs projets de vie sont divergents. Quels choix vont-ils faire -chacun de son côté- après une longue discussion ?
-              </Typography>
-              {/* <Button>Edit</Button> */}
             </div>
-          
-            <div className="mx-auto mt-8 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
-
-              <Card className="shadow-lg shadow-gray-500/10">
-                {/* <CardHeader className=""> */}
-                <p style={{ textAlign: "center", color: "black", size: "12px" }}> Bande annonce
-                  du troisième film de <br />Abdelwaheb Bouden
-                </p>
-                {/* </CardHeader> */}
-                <CardBody>
-                  <video width="320" height="240" controls>
-                    <source src={film4} type="video/mp4" />
-                  </video>
-
-                </CardBody>
-              </Card>
-            </div>
-          </div>
-          <div className="mt-32 flex flex-wrap items-center">
-            <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
-
-              <Typography
-                variant="h3"
-                className="mb-3 font-bold"
-                color="blue-gray"
-              >
-                Ce réel qui m'échappe
-              </Typography>
-              <Typography className="mb-8 font-normal text-blue-gray-500">
-                Une charmante femme fait une randonnée solitaire sur une plage déserte. Elle trouve un parasol et une canne à pêche installés au bord de l’eau. Elle se baigne puis elle s’allonge pour bronzer. Un jeune homme vient de loin et s’arrête prés de la canne à pêche et du parasol. Elle comprends qu’elle s’est installé dans son territoire  à lui. Que vont-ils faire, chacun de son coté, pour se faire séduire. Ils finissent par prendre un rendez-vous amoureux dans la cabane au coucher du soleil.              </Typography>
-              {/* <Button>Edit</Button> */}
-            </div>
-            <div className="mx-auto mt-8 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
-
-              <Card className="shadow-lg shadow-gray-500/10">
-                {/* <CardHeader className=""> */}
-                <p style={{ textAlign: "center", color: "black", size: "12px" }}> Bande annonce
-                  du deuxième film de <br />Abdelwaheb Bouden
-                </p>
-                {/* </CardHeader> */}
-                <CardBody>
-                  <video width="320" height="240" controls>
-                    <source src={film3} type="video/mp4" />
-                  </video>
-
-                </CardBody>
-              </Card>
-            </div>
-          </div>
-          <div className="mt-32 flex flex-wrap items-center">
-            <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
-
-              <Typography
-                variant="h3"
-                className="mb-3 font-bold"
-                color="blue-gray"
-              >
-                La mer aussi aime le blues
-              </Typography>
-              <Typography className="mb-8 font-normal text-blue-gray-500">
-                Un jeune homme fait la pêche pour le plaisir. Il passe une matinée sur une plage déserte et ensoleillée dans le calme et la sérénité sans pouvoir pêcher de poissons. Une belle et jeune femme arrive seule. Ils sympathisent et passent la journée ensemble a s’amuser et à jouer. Mais à la fin de la journée, la jeune femme semble choisir une suite personnelle à cette belle aventure amoureuse.
-              </Typography>
-              {/* <Button>Edit</Button> */}
-            </div>
-            <div className="mx-auto mt-8 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
-
-              <Card className="shadow-lg shadow-gray-500/10">
-                {/* <CardHeader className=""> */}
-                <p style={{ textAlign: "center", color: "black", size: "12px" }}> Bande annonce
-                  du premier film de <br />Abdelwaheb Bouden
-                </p>
-                {/* </CardHeader> */}
-                <CardBody>
-                  <video width="320" height="240" controls>
-                    <source src={film2} type="video/mp4" />
-                  </video>
-
-                </CardBody>
-              </Card>
-            </div>
-          </div>
-
-        </div>
-          <AddnewPost/>   
-      </section><br/>
+</section>
+       <AddnewPost/> 
       <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
             <Typography
               variant="h2"
