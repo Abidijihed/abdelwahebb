@@ -73,7 +73,7 @@ axios.get('http://www.abdelwahebbouden.com/api/get/allpost').then((res)=>{
           <div className="mt-32 flex flex-wrap items-center">
            {data.map((el)=>{
             return(
-              <>
+              <div className="mycard">
 <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
               
               <Typography
@@ -103,7 +103,7 @@ axios.get('http://www.abdelwahebbouden.com/api/get/allpost').then((res)=>{
                 </CardBody>
               </Card>
               </div>
-              </>
+              </div>
             )
            }) }
             </div>
