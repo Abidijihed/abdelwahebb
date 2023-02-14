@@ -39,7 +39,7 @@ import { Form } from 'react-bootstrap';
           dataimage=res.data.url
           datavideo=''
          }
-            axios.post("http://164.90.183.141/api/Create/NewPoste",{
+            axios.post("http://www.abdelwahebbouden.com/api/Create/NewPoste",{
               title:title,
               content:content,
               comments:comments,
@@ -49,6 +49,8 @@ import { Form } from 'react-bootstrap';
               if(res.data==="poste done"){
                 window.location.href="http://www.abdelwahebbouden.com"
               }
+            }).catch((err)=>{
+              console.log(err)
             })
         })
       
