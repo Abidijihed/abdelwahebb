@@ -26,12 +26,11 @@ div#carousel {
     margin-bottom: 73px;
 }
 .items-center {
-    margin-top: -20px !important;
     align-items: center !important;
 
 }
 #mesfilm {
     margin-left: 88px !important;
     margin-top: 44px;
-    margin-bottom: -63px;
+    margin-bottom: -100px;
 }

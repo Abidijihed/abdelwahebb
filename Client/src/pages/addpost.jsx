@@ -30,9 +30,32 @@ import { number } from 'prop-types';
           handleChange(e){ 
      
     this.setState({[e.target.name]:e.target.value})
+    
    
   }
      async  addnewpost(){
+      let timerInterval;
+      Swal.fire({
+        title: "Auto close alert!",
+        html: "your post will be ready in <b></b> .",
+        timer: 10000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const b = Swal.getHtmlContainer().querySelector("b");
+          timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft();
+          }, 100);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        },
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log("I was closed by the timer");
+        }
+      });
         const {imageselected,comments,title,likes,content}=this.state
         var datavideo=''
         var dataimage=''
@@ -48,24 +71,15 @@ import { number } from 'prop-types';
           datavideo=''
          }
          console.log(datavideo)
-            axios
-              .post("http://www.abdelwahebbouden.com/api/Create/NewPoste", {
-                title: title,
-                content: content,
-                views: 0,
-                comments: "comments",
-                likes: 0,
-                number:number,
-                video: datavideo,
-              })
-              Swal.fire({
-                position: "center",
-                icon: "success",
-                title: "Your post has been added",
-                showConfirmButton: false,
-                timer: 15000,
-              })
-                .then((res) => {
+            axios.post("http://www.abdelwahebbouden.com/api/Create/NewPoste", {
+              title: title,
+              content: content,
+              views: 0,
+              comments: "comments",
+              likes: 0,
+              number:number,
+              video: datavideo,
+            }).then((res) => {
                   if (res.data === "poste done") {
                     window.location.href = "http://www.abdelwahebbouden.com";
                   }
@@ -81,6 +95,7 @@ import { number } from 'prop-types';
         const {show}=this.state
         return (
           <>
+          {console.log(this.state)}
             <Button
               variant="primary"
               onClick={() => this.handleShow()}
@@ -96,15 +111,15 @@ import { number } from 'prop-types';
               <Modal.Body>
                 <Form.Group className="mb-3" controlId="formBasicTitle">
                   <Form.Label>Title</Form.Label>
-                  <Form.Control type="text" placeholder="Enter Title"name='title'onChange={(e)=>this.handleChange(e)} />
+                  <Form.Control type="text" placeholder="Enter Title"name='title' onChange={(e)=>this.handleChange(e)} />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicContent">
                   <Form.Label>Content</Form.Label>
-                  <Form.Control type="text" placeholder="Enter Content"  name='content'onChange={(e)=>this.handleChange(e)}/>
+                  <Form.Control type="text" placeholder="Enter Content"  name='content' onChange={(e)=>this.handleChange(e)}/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicNumber">
                   <Form.Label>number</Form.Label>
-                  <Form.Control type="text" placeholder="Enter Number"name='number'onChange={(e)=>this.handleChange(e)} />
+                  <Form.Control type="text" placeholder="Enter Number"name='number' onChange={(e)=>this.handleChange(e)} />
                 </Form.Group>
 
                 <input
