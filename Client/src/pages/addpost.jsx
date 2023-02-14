@@ -39,9 +39,10 @@ import { Form } from 'react-bootstrap';
           dataimage=res.data.url
           datavideo=''
          }
+         console.log(datavideo)
             axios.post("http://www.abdelwahebbouden.com/api/Create/NewPoste",{
-              title:title,
-              content:content,
+              title:"test",
+              content:"content",
               views:4,
               comments:"comments",
               likes:4,
