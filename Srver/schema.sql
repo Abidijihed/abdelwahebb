@@ -38,6 +38,5 @@ id INT NOT NULL AUTO_INCREMENT,
     comments VARCHAR(255) NOT NULL,
     numberr VARCHAR(255) NOT NULL,
     video VARCHAR(255),
-    
     PRIMARY KEY (id)
 );
