@@ -11,16 +11,16 @@ import Spinner from "react-bootstrap/Spinner";
     export  class addpost extends Component {
         constructor(){
             super()
-            this.state={
-                show:false,
-                imageselected:[],
-                title:"",
-                content:"",
-                comments:"",
-                number:"",
-                likes:0,
-                spiner:false
-            }
+            this.state = {
+              show: false,
+              imageselected: [],
+              title: "",
+              content: "",
+              comments: "",
+              numberr: "",
+              likes: 0,
+              spiner: false,
+            };
         }
         handleClose(){
             this.setState({show:false})
@@ -36,7 +36,8 @@ import Spinner from "react-bootstrap/Spinner";
   }
      async  addnewpost(){
       this.setState({spiner:true})
-        const {imageselected,comments,title,likes,content,number}=this.state
+        const { imageselected, comments, title, likes, content, numberr } =
+          this.state;
         var datavideo=''
         var dataimage=''
         const formData = new FormData()
@@ -51,23 +52,25 @@ import Spinner from "react-bootstrap/Spinner";
           datavideo=''
          }
          console.log(datavideo)
-            axios.post("http://www.abdelwahebbouden.com/api/Create/NewPoste", {
-              title: title,
-              content: content,
-              views: 0,
-              comments: "comments",
-              likes: 0,
-              number:number,
-              video: datavideo,
-            }).then((res) => {
-                  if (res.data === "poste done") {
-                    window.location.href = "http://www.abdelwahebbouden.com";
-                    this.setState({spiner:false})
-                  }
-                })
-                .catch((err) => {
-                  console.log(err);
-                });
+            axios
+              .post("http://www.abdelwahebbouden.com/api/Create/NewPoste", {
+                title: title,
+                content: content,
+                views: 0,
+                comments: "comments",
+                likes: 0,
+                numberr: numberr,
+                video: datavideo,
+              })
+              .then((res) => {
+                if (res.data === "poste done") {
+                  window.location.href = "http://www.abdelwahebbouden.com";
+                  this.setState({ spiner: false });
+                }
+              })
+              .catch((err) => {
+                console.log(err);
+              });
         })
       
         this.handleClose()
@@ -76,71 +79,90 @@ import Spinner from "react-bootstrap/Spinner";
         const {show,spiner}=this.state
         return (
           <>
-         {spiner===true &&  <Spinner animation="border" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </Spinner>}
-        { spiner===false&& <>
-          {console.log(this.state)}
-            <Button
-              variant="primary"
-              onClick={() => this.handleShow()}
-              id="postbutton"
-            >
-              Add New Post
-            </Button>
-
-            <Modal show={show} onHide={() => this.handleClose()}>
-              <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <Form.Group className="mb-3" controlId="formBasicTitle">
-                  <Form.Label>Title</Form.Label>
-                  <Form.Control type="text" placeholder="Enter Title"name='title' onChange={(e)=>this.handleChange(e)} />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicContent">
-                  <Form.Label>Content</Form.Label>
-                  <Form.Control type="text" placeholder="Enter Content"  name='content' onChange={(e)=>this.handleChange(e)}/>
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicNumber">
-                  <Form.Label>number</Form.Label>
-                  <Form.Control type="text" placeholder="Enter Number"name='number' onChange={(e)=>this.handleChange(e)} />
-                </Form.Group>
-
-                <input
-                  type="file"
-                  accept="image/*,.mp4"
-                  name="image-upload"
-                  id="input"
-                  onChange={(event) =>
-                    this.setState({ imageselected: event.target.files[0] })
-                  }
-                />
-                <div className="label">
-                  <label className="image-upload" htmlFor="input">
-                    <AddAPhotoIcon />
-                    Choose your Photo
-                  </label>
-                </div>
-              </Modal.Body>
-              <Modal.Footer>
-                <Button
-                  variant="secondary"
-                  onClick={() => this.handleClose()}
-                  id="postbutton1"
-                >
-                  Close
-                </Button>
+            {spiner === true && (
+              <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </Spinner>
+            )}
+            {spiner === false && (
+              <>
+                {console.log(this.state)}
                 <Button
                   variant="primary"
-                  onClick={() => this.addnewpost()}
+                  onClick={() => this.handleShow()}
                   id="postbutton"
                 >
-                  Save Changes
+                  Add New Post
                 </Button>
-              </Modal.Footer>
-            </Modal>
-          </>}
+
+                <Modal show={show} onHide={() => this.handleClose()}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Modal heading</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <Form.Group className="mb-3" controlId="formBasicTitle">
+                      <Form.Label>Title</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter Title"
+                        name="title"
+                        onChange={(e) => this.handleChange(e)}
+                      />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicContent">
+                      <Form.Label>Content</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter Content"
+                        name="content"
+                        onChange={(e) => this.handleChange(e)}
+                      />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicNumber">
+                      <Form.Label>number</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter Number"
+                        name="numberr"
+                        onChange={(e) => this.handleChange(e)}
+                      />
+                    </Form.Group>
+
+                    <input
+                      type="file"
+                      accept="image/*,.mp4"
+                      name="image-upload"
+                      id="input"
+                      onChange={(event) =>
+                        this.setState({ imageselected: event.target.files[0] })
+                      }
+                    />
+                    <div className="label">
+                      <label className="image-upload" htmlFor="input">
+                        <AddAPhotoIcon />
+                        Choose your Photo
+                      </label>
+                    </div>
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button
+                      variant="secondary"
+                      onClick={() => this.handleClose()}
+                      id="postbutton1"
+                    >
+                      Close
+                    </Button>
+                    <Button
+                      variant="primary"
+                      onClick={() => this.addnewpost()}
+                      id="postbutton"
+                    >
+                      Save Changes
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+              </>
+            )}
           </>
         );
       }
