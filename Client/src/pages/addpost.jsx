@@ -19,7 +19,6 @@ export class addpost extends Component {
       comments: "",
       numberr: "",
       likes: 0,
-      spiner: false,
     };
   }
   handleClose() {
@@ -32,7 +31,7 @@ export class addpost extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
   async addnewpost() {
-    this.setState({ spiner: true });
+   
     const { imageselected, comments, title, likes, content, numberr } =
       this.state;
     var datavideo = "";
@@ -67,7 +66,7 @@ export class addpost extends Component {
           .then((res) => {
             if (res.data === "poste done") {
               window.location.href = "http://www.abdelwahebbouden.com";
-              this.setState({ spiner: false });
+             
             }
           })
           .catch((err) => {
@@ -80,13 +79,7 @@ export class addpost extends Component {
   render() {
     const { show, spiner } = this.state;
     return (
-      <>
-        {spiner === true && (
-          <Spinner animation="border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
-        )}
-        {spiner === false && (
+      
           <>
             {console.log(this.state)}
             <Button
@@ -164,8 +157,7 @@ export class addpost extends Component {
               </Modal.Footer>
             </Modal>
           </>
-        )}
-      </>
+        
     );
   }
 }
