@@ -30,29 +30,17 @@ const config = {
 };
 const nms = new NodeMediaServer(config);
 nms.run();
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "http://www.abdelwahebbouden.com");
-//   next();
-// });
-// app.use(
-//   cors({
-//     origin: "http://www.abdelwahebbouden.com",
-//     credentials: false, //access-control-allow-credentials:true
-//     optionSuccessStatus: 200,
-//   })
-// );
-const endpoint = "http://164.90.183.141/api/get/allpost";
-const corsProxy = "http://www.abdelwahebbouden.com";
-
-fetch(corsProxy + endpoint, {
-  method: "GET",
-  headers: {
-    Origin: "http://www.abdelwahebbouden.com",
-  },
-})
-  .then((response) => response.json())
-  .then((data) => console.log(data))
-  .catch((error) => console.error(error));
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://www.abdelwahebbouden.com");
+  next();
+});
+app.use(
+  cors({
+    origin: "http://www.abdelwahebbouden.com",
+    credentials: false, //access-control-allow-credentials:true
+    optionSuccessStatus: 200,
+  })
+);
 
 
 
