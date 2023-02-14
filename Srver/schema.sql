@@ -36,7 +36,8 @@ id INT NOT NULL AUTO_INCREMENT,
     views INT DEFAULT 0,
     likes INT DEFAULT 0,
     comments VARCHAR(255) NOT NULL,
-    video VARCHAR(255),
     numberr VARCHAR(255) NOT NULL,
+    video VARCHAR(255),
+    
     PRIMARY KEY (id)
 );
