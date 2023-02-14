@@ -24,7 +24,7 @@ import axios from "axios";
 export function Home() {
 const [data,setData]=useState([])
 useEffect(()=>{
-axios.get('http://164.90.183.141/api/get/allpost').then((res)=>{
+axios.get('http://www.abdelwahebbouden.com/api/get/allpost').then((res)=>{
   setData(res.data)
 })
 },[])
