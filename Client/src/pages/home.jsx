@@ -69,6 +69,16 @@ export function Home() {
           <br /> <br />
           <br />
           <div className="mt-32 flex flex-wrap items-center">
+            <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
+              <Typography
+                variant="h2"
+                color="blue-gray"
+                className="mb-6 font-black"
+                fontWeight="300"
+              >
+                Mes films
+              </Typography>
+            </div>
             {data.map((el) => {
               return (
                 <>
@@ -94,11 +104,10 @@ export function Home() {
                           size: "12px",
                         }}
                       >
-                        
                         Bande annonce du quatrième film de <br />
                         Abdelwaheb Bouden
                       </p>
-                     
+
                       <CardBody>
                         <video width="320" height="240" controls>
                           <source src={el.video} type="video/mp4" />
