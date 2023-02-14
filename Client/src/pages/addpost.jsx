@@ -6,7 +6,8 @@ import axios from "axios"
 import React, { Component } from 'react'
 import { Form } from 'react-bootstrap';
 import { number } from 'prop-types';
-    
+    import Swal from "sweetalert2";
+
     export  class addpost extends Component {
         constructor(){
             super()
@@ -54,17 +55,24 @@ import { number } from 'prop-types';
                 views: 0,
                 comments: "comments",
                 likes: 0,
-                number: number,
+                number:number,
                 video: datavideo,
               })
-              .then((res) => {
-                if (res.data === "poste done") {
-                  window.location.href = "http://www.abdelwahebbouden.com";
-                }
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Your post has been added",
+                showConfirmButton: false,
+                timer: 15000,
               })
-              .catch((err) => {
-                console.log(err);
-              });
+                .then((res) => {
+                  if (res.data === "poste done") {
+                    window.location.href = "http://www.abdelwahebbouden.com";
+                  }
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
         })
       
         this.handleClose()
