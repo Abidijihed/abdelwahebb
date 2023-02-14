@@ -42,12 +42,14 @@ import { Form } from 'react-bootstrap';
             axios.post("http://www.abdelwahebbouden.com/api/Create/NewPoste",{
               title:title,
               content:content,
-              comments:comments,
-              likes:likes,
+              views:4,
+              comments:"comments",
+              likes:4,
               video:datavideo
             }).then((res)=>{
               if(res.data==="poste done"){
-                window.location.href="http://www.abdelwahebbouden.com"
+                // window.location.href="http://www.abdelwahebbouden.com"
+                console.log('aaaaaaaaaa')
               }
             }).catch((err)=>{
               console.log(err)
