@@ -5,8 +5,8 @@ import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import axios from "axios"
 import React, { Component } from 'react'
 import { Form } from 'react-bootstrap';
-import { number } from 'prop-types';
-    import Swal from "sweetalert2";
+
+import Spinner from "react-bootstrap/Spinner";
 
     export  class addpost extends Component {
         constructor(){
@@ -18,7 +18,8 @@ import { number } from 'prop-types';
                 content:"",
                 comments:"",
                 number:"",
-                likes:0
+                likes:0,
+                spiner:false
             }
         }
         handleClose(){
@@ -34,29 +35,8 @@ import { number } from 'prop-types';
    
   }
      async  addnewpost(){
-      let timerInterval;
-      Swal.fire({
-        title: "Auto close alert!",
-        html: "your post will be ready in <b></b> .",
-        timer: 10000,
-        timerProgressBar: true,
-        didOpen: () => {
-          Swal.showLoading();
-          const b = Swal.getHtmlContainer().querySelector("b");
-          timerInterval = setInterval(() => {
-            b.textContent = Swal.getTimerLeft();
-          }, 100);
-        },
-        willClose: () => {
-          clearInterval(timerInterval);
-        },
-      }).then((result) => {
-        /* Read more about handling dismissals below */
-        if (result.dismiss === Swal.DismissReason.timer) {
-          console.log("I was closed by the timer");
-        }
-      });
-        const {imageselected,comments,title,likes,content}=this.state
+      this.setState({spiner:true})
+        const {imageselected,comments,title,likes,content,number}=this.state
         var datavideo=''
         var dataimage=''
         const formData = new FormData()
@@ -82,6 +62,7 @@ import { number } from 'prop-types';
             }).then((res) => {
                   if (res.data === "poste done") {
                     window.location.href = "http://www.abdelwahebbouden.com";
+                    this.setState({spiner:false})
                   }
                 })
                 .catch((err) => {
@@ -92,9 +73,13 @@ import { number } from 'prop-types';
         this.handleClose()
       }
       render() {
-        const {show}=this.state
+        const {show,spiner}=this.state
         return (
           <>
+         {spiner===true &&  <Spinner animation="border" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </Spinner>}
+        { spiner===false&& <>
           {console.log(this.state)}
             <Button
               variant="primary"
@@ -155,6 +140,7 @@ import { number } from 'prop-types';
                 </Button>
               </Modal.Footer>
             </Modal>
+          </>}
           </>
         );
       }
