@@ -71,11 +71,10 @@ axios.get('http://www.abdelwahebbouden.com/api/get/allpost').then((res)=>{
           <br /><br /> <br /><br />
 
           <div className="mt-32 flex flex-wrap items-center">
-          <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
            {data.map((el)=>{
             return(
               <>
-
+<div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
               
               <Typography
                 variant="h3"
@@ -88,7 +87,7 @@ axios.get('http://www.abdelwahebbouden.com/api/get/allpost').then((res)=>{
               {el.content}
               </Typography>
               {/* <Button>Edit</Button> */}
-          
+            </div>
             <div className="mx-auto mt-8 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
               <Card className="shadow-lg shadow-gray-500/10">
                 {/* <CardHeader className=""> */}
@@ -106,7 +105,7 @@ axios.get('http://www.abdelwahebbouden.com/api/get/allpost').then((res)=>{
               </div>
               </>
             )
-           }) }  </div>
+           }) }
             </div>
             </div>
 </section>
