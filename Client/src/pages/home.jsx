@@ -69,7 +69,7 @@ export function Home() {
           <br /> <br />
           <br />
           <div className="mt-32 flex flex-wrap items-center">
-            <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
+            {/* <div className="mx-auto -mt-8 w-full px-4 md:w-5/12"> */}
               <Typography
                 variant="h2"
                 color="blue-gray"
@@ -78,7 +78,7 @@ export function Home() {
               >
                 Mes films
               </Typography>
-            </div>
+            {/* </div> */}
             {data.map((el) => {
               return (
                 <>
