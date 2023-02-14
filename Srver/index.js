@@ -30,14 +30,19 @@ const config = {
 };
 const nms = new NodeMediaServer(config);
 nms.run();
-
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://www.abdelwahebbouden.com");
+  next();
+});
 app.use(
   cors({
-    origin: "http://www.abdelwahebbouden.com/",
+    origin: "*",
     credentials: true, //access-control-allow-credentials:true
     optionSuccessStatus: 200,
   })
 );
+
+
 
 app.use(express.json());
 app.use(cookieParser())

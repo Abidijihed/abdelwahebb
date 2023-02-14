@@ -10,7 +10,7 @@ app.use(express.static(path.resolve(__dirname, './Client/dist')));
 app.use(
   "/",
   createProxyMiddleware({
-    target: "http://www.abdelwahebbouden.com/",
+    target: "*",
     changeOrigin: false,
   })
 );
