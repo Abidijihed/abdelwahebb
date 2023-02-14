@@ -34,13 +34,13 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "http://www.abdelwahebbouden.com");
   next();
 });
-app.use(
-  cors({
-    origin: "http://127.0.0.1:5173/",
-    credentials: false, //access-control-allow-credentials:true
-    optionSuccessStatus: 200,
-  })
-);
+// app.use(
+//   cors({
+//     origin: "http://127.0.0.1:5173/",
+//     credentials: false, //access-control-allow-credentials:true
+//     optionSuccessStatus: 200,
+//   })
+// );
 
 
 
