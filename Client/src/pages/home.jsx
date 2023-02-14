@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import {
   Card,
   CardBody,
@@ -20,10 +20,17 @@ import film3 from '../assets/lastfilm3.mp4'
 import film2 from '../assets/lastfilm2.mp4'
 import Carousel from './carousel'
 import AddnewPost from './addpost'
+import axios from "axios";
 export function Home() {
-
+const [data,setData]=useState([])
+useEffect(()=>{
+axios.get('http://164.90.183.141//api/get/allpost').then((res)=>{
+  setData(res.data)
+})
+},[])
   return (
     <>
+    {console.log(data)}
       <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
         <div className="absolute top-0 h-full w-full bg-[url('http://cinematunisien.com/wp-content/uploads/2022/01/Abdelwaheb-Bouden-11.jpg')] bg-cover bg-center" />
         <div className="absolute top-0 h-full w-full bg-black/75 bg-cover bg-center" />
@@ -121,7 +128,7 @@ export function Home() {
               </Typography>
               {/* <Button>Edit</Button> */}
             </div>
-            <AddnewPost/>
+          
             <div className="mx-auto mt-8 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
 
               <Card className="shadow-lg shadow-gray-500/10">
@@ -204,6 +211,7 @@ export function Home() {
           </div>
 
         </div>
+          <AddnewPost/>   
       </section><br/>
       <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
             <Typography

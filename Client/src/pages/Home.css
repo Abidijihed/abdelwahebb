@@ -16,3 +16,9 @@ div#carousel {
 .d-block{
     height: 500px !important;
 }
+#postbutton{
+    background-color: blue !important;
+}
+#postbutton1{
+    background-color: gray !important;
+}

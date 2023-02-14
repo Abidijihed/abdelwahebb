@@ -1,11 +1,10 @@
 // 164.90.183.141
-import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
-
-
-    import React, { Component } from 'react'
+import axios from "axios"
+import React, { Component } from 'react'
+import { Form } from 'react-bootstrap';
     
     export  class addpost extends Component {
         constructor(){
@@ -26,7 +25,7 @@ import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
             this.setState({show:true})
         }
       async addnewpost(){
-        const {imageselected}=this.state
+        const {imageselected,comments,title,likes,content}=this.state
         var datavideo=''
         var dataimage=''
         const formData = new FormData()
@@ -40,21 +39,30 @@ import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
           dataimage=res.data.url
           datavideo=''
          }
-
+            axios.post("http://164.90.183.141/api/Create/NewPoste",{
+              title:title,
+              content:content,
+              comments:comments,
+              likes:likes,
+              video:datavideo
+            }).then((res)=>{
+              if(res.data==="poste done"){
+                window.location.href="http://www.abdelwahebbouden.com"
+              }
+            })
         })
-        console.log(datavideo)
-        console.log(dataimage)
+      
         this.handleClose()
       }
       render() {
         const {show}=this.state
         return (
             <>
-      <Button variant="primary" onClick={()=>this.handleShow()}>
+      <Button variant="primary" onClick={()=>this.handleShow()} id="postbutton">
         Add New Post
       </Button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={()=>this.handleClose()}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
@@ -76,10 +84,10 @@ import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={()=>this.handleClose()}>
+          <Button variant="secondary" onClick={()=>this.handleClose()}id="postbutton1">
             Close
           </Button>
-          <Button variant="primary" onClick={()=>this.addnewpost()}>
+          <Button variant="primary" onClick={()=>this.addnewpost()} id="postbutton">
             Save Changes
           </Button>
         </Modal.Footer>
