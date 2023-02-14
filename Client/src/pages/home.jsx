@@ -66,18 +66,28 @@ export function Home() {
       <section className="-mt-32 bg-gray-50 px-4 pb-20 pt-4">
         <div className="container mx-auto">
           <br />
-          <br /> <br />
           <br />
+          <br />
+          <br />
+          <br />
+          <Typography
+            variant="h2"
+            color="blue-gray"
+            className="mb-6 font-black"
+            fontWeight="300"
+          >
+            Mes films
+          </Typography>
           <div className="mt-32 flex flex-wrap items-center">
             {/* <div className="mx-auto -mt-8 w-full px-4 md:w-5/12"> */}
-              <Typography
-                variant="h2"
-                color="blue-gray"
-                className="mb-6 font-black"
-                fontWeight="300"
-              >
-                Mes films
-              </Typography>
+            <Typography
+              variant="h2"
+              color="blue-gray"
+              className="mb-6 font-black"
+              fontWeight="300"
+            >
+              Mes films
+            </Typography>
             {/* </div> */}
             {data.map((el) => {
               return (
