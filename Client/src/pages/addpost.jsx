@@ -24,7 +24,7 @@ import { Form } from 'react-bootstrap';
         handleShow(){
             this.setState({show:true})
         }
-      async addnewpost(){
+     async  addnewpost(){
         const {imageselected,comments,title,likes,content}=this.state
         var datavideo=''
         var dataimage=''
