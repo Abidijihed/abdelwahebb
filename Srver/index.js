@@ -36,8 +36,8 @@ app.use((req, res, next) => {
 });
 app.use(
   cors({
-    origin: "*",
-    credentials: true, //access-control-allow-credentials:true
+    origin: "http://127.0.0.1:5173/",
+    credentials: false, //access-control-allow-credentials:true
     optionSuccessStatus: 200,
   })
 );
