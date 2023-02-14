@@ -44,19 +44,15 @@ CREATE TABLE sessions(
 --   updated_at DATETIME ON UPDATE CURRENT_TIMESTAMP,
 --   FOREIGN KEY (user_id) REFERENCES user(user_id)
 -- );
-CREATE TABLE post (
+CREATE TABLE postes (
 id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     content TEXT NOT NULL,
-    user_id INT NOT NULL,
-    admin_id INT,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
     views INT DEFAULT 0,
     likes INT DEFAULT 0,
-    comments INT DEFAULT 0,
-    image VARCHAR(255),
+    comments VARCHAR(255) NOT NULL,
     video VARCHAR(255),
     PRIMARY KEY (id),
-    FOREIGN KEY (user_id) REFERENCES user(id),
-    FOREIGN KEY (admin_id) REFERENCES admin(id)
+
 );
