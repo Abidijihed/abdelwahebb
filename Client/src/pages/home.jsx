@@ -19,6 +19,7 @@ import film4 from '../assets/lastfilm4.mp4'
 import film3 from '../assets/lastfilm3.mp4'
 import film2 from '../assets/lastfilm2.mp4'
 import Carousel from './carousel'
+import AddnewPost from './addpost'
 export function Home() {
 
   return (
@@ -120,6 +121,7 @@ export function Home() {
               </Typography>
               {/* <Button>Edit</Button> */}
             </div>
+            <AddnewPost/>
             <div className="mx-auto mt-8 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
 
               <Card className="shadow-lg shadow-gray-500/10">
