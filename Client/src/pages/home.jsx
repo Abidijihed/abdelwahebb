@@ -71,6 +71,7 @@ export function Home() {
           <br />
           <br />
           <Typography
+          id="mesfilm"
             variant="h2"
             color="blue-gray"
             className="mb-6 font-black"
@@ -80,14 +81,7 @@ export function Home() {
           </Typography>
           <div className="mt-32 flex flex-wrap items-center">
             {/* <div className="mx-auto -mt-8 w-full px-4 md:w-5/12"> */}
-            <Typography
-              variant="h2"
-              color="blue-gray"
-              className="mb-6 font-black"
-              fontWeight="300"
-            >
-              Mes films
-            </Typography>
+            
             {/* </div> */}
             {data.map((el) => {
               return (
