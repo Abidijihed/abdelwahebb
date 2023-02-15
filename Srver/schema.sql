@@ -28,7 +28,15 @@ CREATE TABLE sessions(
    PRIMARY KEY (id),
    FOREIGN KEY (user_id) REFERENCES user(id)
 );
-
+CREATE TABLE postestext(
+id INT NOT NULL AUTO_INCREMENT,
+    bigTitle VARCHAR(155) NOT NULL,  
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    imagees VARCHAR(255),
+    PRIMARY KEY (id)
+);
 CREATE TABLE postes(
 id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,

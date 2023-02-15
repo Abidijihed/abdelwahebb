@@ -20,6 +20,7 @@ import film3 from "../assets/lastfilm3.mp4";
 import film2 from "../assets/lastfilm2.mp4";
 import Carousel from "./carousel";
 import AddnewPost from "./addpost";
+import AddanewPostText from "./addnewtext"
 import axios from "axios";
 export function Home() {
   const [data, setData] = useState([]);
@@ -30,7 +31,6 @@ export function Home() {
   }, []);
   return (
     <>
-      {console.log(data)}
       <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
         <div className="absolute top-0 h-full w-full bg-[url('http://cinematunisien.com/wp-content/uploads/2022/01/Abdelwaheb-Bouden-11.jpg')] bg-cover bg-center" />
         <div className="absolute top-0 h-full w-full bg-black/75 bg-cover bg-center" />
@@ -80,9 +80,6 @@ export function Home() {
             Mes films
           </Typography>
           <div className="mt-32 flex flex-wrap items-center">
-            {/* <div className="mx-auto -mt-8 w-full px-4 md:w-5/12"> */}
-            
-            {/* </div> */}
             {data.map((el) => {
               return (
                 <>
@@ -97,7 +94,6 @@ export function Home() {
                     <Typography className="mb-8 font-normal text-blue-gray-500">
                       {el.content}
                     </Typography>
-                    {/* <Button>Edit</Button> */}
                   </div>
                   <div className="mx-auto mt-8 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
                     <Card className="shadow-lg shadow-gray-500/10">
@@ -142,53 +138,7 @@ export function Home() {
           </PageTitle>
           <br />
           <br />
-          <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
-            <Typography
-              variant="h1"
-              className="mb-3 font-bold"
-              color="blue-gray"
-              id="naturetitle"
-            >
-              1.Nature
-            </Typography>
-            <br />
-            <Typography
-              variant="h3"
-              className="mb-3 font-bold"
-              color="blue-gray"
-              id="titlenatur"
-            >
-              La compagne
-            </Typography>
-            <Typography className="mb-8 font-normal text-blue-gray-500">
-              Dès mon enfance, je trouvais la nature plus attrayante et plus
-              amicale que la société traditionaliste, conservatrice et
-              autoritaire dans laquelle je vivais. Je me souviens toujours de
-              ces moments de plaisir, d’apaisement et de liberté que je passais
-              dans le verger paternel situé en pleine compagne à plusieurs
-              kilomètres de ma vielle ville natale où je vivais avec ma famille.
-              Je trouvais auprès de la verdure, des arbres et des animaux le
-              calme et la sérénité. Je passais mon temps à me promener et à
-              jouer sans que personne ne venait me déranger. Mon père -auquel je
-              rends un hommage vibrant- était un homme particulièrement
-              tolérant. Il aimait la nature et la vie en pleine air malgré son
-              appartenance à la ville et à son mode de vie. Il nous ramenait
-              fréquemment à la compagne pour changer d’atmosphère. Se promener
-              et jouer en plein air et au soleil sans le contrôle d’une autorité
-              étaient pour l’enfant puis l’adolescent que j’étais un moment de
-              libération et d’émerveillement, quasi exotique. Pendant la saison
-              des fruits en été, je me régalais d’abricots, de pêches, de
-              pommes, de poires, de figues et de raisins que je cueillais
-              directement des arbres et que je mangeais sans les laver en me
-              contentant de les essuyer. Les fruits de l’époque n’étaient pas
-              traités dans toute la région. Ils avaient un goût succulent et
-              l’odeur parfumée naturellement des pommes se sentaient sur une
-              longue distance, loin des pommiers. Les couchers du soleil
-              derrière les montagnes lointaines me fascinaient particulièrement.
-              Je passais la soirée à m’émerveiller de la vue des étoiles et du
-              silence régnant.
-            </Typography>
-          </div>
+         
           <br />
           <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
             <Typography
@@ -583,6 +533,7 @@ export function Home() {
           </div>
           <br />
           <br />
+          <AddanewPostText />
           <br />
           <br />
           <PageTitle heading="Want to contact us?">

@@ -6,5 +6,12 @@ module.exports={
         connection.query(query,(err,result)=>
           (err)?res.status(500).send(err):res.status(201).send('poste done')
         )
-      })
+      }),
+      createPostText:((req,res)=>{
+        console.log(req.body)
+          const query = `INSERT INTO postestext(bigTitle,title,content,imagees) VALUES("${req.body.bigTitle}","${req.body.title}","${req.body.content}","${req.body.imagees}")`
+          connection.query(query,(err,result)=>
+            (err)?res.status(500).send(err):res.status(201).send('poste done')
+          )
+        })
 }
