@@ -39,7 +39,7 @@ export class addpost extends Component {
     formData.append("file", imageselected);
     formData.append("upload_preset", "kgiezron");
     await axios
-      .post("http://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formData)
+      .post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formData)
       .then((res) => {
         if (res.data.url.slice(res.data.url.length - 4) === ".mp4") {
           dataimage = "";
