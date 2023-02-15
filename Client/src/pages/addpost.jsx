@@ -18,7 +18,7 @@ export class addpost extends Component {
       content: "",
       comments: "",
       numberr: "",
-      likes: 0,
+      likes: "",
     };
   }
   handleClose() {
@@ -56,9 +56,9 @@ export class addpost extends Component {
           .post("http://www.abdelwahebbouden.com/api/Create/NewPoste", {
             title: title,
             content: content,
-            views: 0,
+            views: "0",
             comments: "comments",
-            likes: 0,
+            likes: "0",
             numberr: numberr,
             video: datavideo,
           })
@@ -104,8 +104,9 @@ export class addpost extends Component {
             <Form.Group className="mb-3" controlId="formBasicContent">
               <Form.Label>Content</Form.Label>
               <Form.Control
-                type="text"
-                placeholder="Enter Content"
+                as="textarea"
+                placeholder="Leave a comment here"
+                style={{ height: "100px" }}
                 name="content"
                 onChange={(e) => this.handleChange(e)}
               />

@@ -37,7 +37,7 @@ app.use((req, res, next) => {
 app.use(
   cors({
     origin: "http://www.abdelwahebbouden.com",
-    credentials: false, //access-control-allow-credentials:true
+    credentials: true, //access-control-allow-credentials:true
     optionSuccessStatus: 200,
   })
 );
