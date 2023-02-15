@@ -20,12 +20,12 @@ export const routes = [
   //   path: "/profile",
   //   element: <Profile />,
   // },
-  // {
-  //   icon: ArrowRightOnRectangleIcon,
-  //   name: "Sign In",
-  //   path: "/sign-in",
-  //   element: <SignIn />,
-  // },
+  {
+    icon: ArrowRightOnRectangleIcon,
+    name: "Sign In",
+    path: "/sign-in/connect admin$abdelwaheb boude",
+    element: <SignIn />,
+  },
   // {
   //   icon: UserPlusIcon,
   //   name: "Sign Up",

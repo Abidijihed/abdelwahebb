@@ -1,6 +1,7 @@
 const models = require("../controller/session");
-module.exports = {
-  CreateSession: (req, res, user_id, session) => {
+//www.abdelwahebbouden.com/
+http: module.exports = {
+  CreateSession: (req, res, user_id, role, session) => {
     models
       .post(user_id, session)
       .then((result) => {
@@ -11,7 +12,7 @@ module.exports = {
             httpOnly: false,
             abdelwahebcenima: false,
           })
-          .send([session, "secsuss", user_id]);
+          .send([session, role, "secsuss", user_id]);
       })
       .catch((err) => {
         res.send(err);

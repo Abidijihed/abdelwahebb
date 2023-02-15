@@ -8,25 +8,26 @@ USE abdelwaheb_db;
 --     password VARCHAR(255) NOT NULL,
 --     PRIMARY KEY(id)
 -- );
--- CREATE TABLE  user(
---     id INT NOT NULL AUTO_INCREMENT,
---      username VARCHAR(255) NOT NULL,
---     email VARCHAR(255) NOT NULL,
---     phone_number VARCHAR(255) NOT NULL,
---     password VARCHAR(255) NOT NULL,
---     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
---     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
---     photo VARCHAR(255),
---     PRIMARY KEY (id)
--- );
--- CREATE TABLE sessions(
---     id INT NOT NULL AUTO_INCREMENT,
---     session VARCHAR (255) NOT NULL,
---     user_id INT NOT NULL,
---    logedin_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
---    PRIMARY KEY (id),
---    FOREIGN KEY (user_id) REFERENCES user(id)
--- );
+CREATE TABLE  user(
+    id INT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone_number VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
+    photo VARCHAR(255),
+    role VARCHAR(255),
+    PRIMARY KEY (id)
+);
+CREATE TABLE sessions(
+    id INT NOT NULL AUTO_INCREMENT,
+    session VARCHAR (255) NOT NULL,
+    user_id INT NOT NULL,
+   logedin_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+   PRIMARY KEY (id),
+   FOREIGN KEY (user_id) REFERENCES user(id)
+);
 
 CREATE TABLE postes(
 id INT NOT NULL AUTO_INCREMENT,
@@ -40,3 +41,4 @@ id INT NOT NULL AUTO_INCREMENT,
     video VARCHAR(255),
     PRIMARY KEY (id)
 );
+insert into user(username,email,phone_number,password,photo,role) values("Abdelwaheb BOUDEN","abdelwahebbouden2020@gmail.com","+216 52 489 389","8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918","http://cinematunisien.com/wp-content/uploads/2022/01/Abdelwaheb-Bouden-11.jpg","Admin")

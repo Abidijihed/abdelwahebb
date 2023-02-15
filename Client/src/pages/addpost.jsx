@@ -53,7 +53,7 @@ export class addpost extends Component {
         }
         console.log(datavideo);
         axios
-          .post("http://www.abdelwahebbouden.com/api/Create/NewPoste", {
+          .post("https://abdelwahebbouden.com/api/Create/NewPoste", {
             title: title,
             content: content,
             views: "0",
@@ -64,7 +64,7 @@ export class addpost extends Component {
           })
           .then((res) => {
             if (res.data === "poste done") {
-              window.location.href = "http://www.abdelwahebbouden.com";
+              window.location.href = "https://abdelwahebbouden.com/";
             }
           })
           .catch((err) => {

@@ -3,12 +3,8 @@ const crypto = require("crypto");
 const middleware = require("../middelwer/auth");
 const utils = require("../middelwer/util");
 const session = require("./session");
-// const emailCheck = require("email-regex");
 const geoip=require('geoip-lite')
-// function validatephoneNumber() {
-//   const PhoneNumberPattern = /^\d{10}$/;
-//   return PhoneNumberPattern.test(PhoneNumber);
-// }
+
 module.exports = {
   CreateStudent: (req, res) => {
     console.log(req.body)
@@ -38,7 +34,7 @@ module.exports = {
       ) {
         res.status(405).send("email is not the corect format");
       }  else {
-        var query = `INSERT INTO user(username,email,phone_number,password,photo) VALUES("${req.body.username}","${req.body.email}","${req.body.phone_number}","${passwordHashed}","${req.body.photo}")`
+        var query = `INSERT INTO user(username,email,phone_number,password,photo,role) VALUES("${req.body.username}","${req.body.email}","${req.body.phone_number}","${passwordHashed}","${req.body.photo}","User")`
         connection.query(query,(err, results) => {
           if (err) {
             res.status(500).send(err);
@@ -63,7 +59,7 @@ module.exports = {
         res.status(500).send(err);
       } else if (results.length > 0 && results[0].password === passwordHashed) {
         var session = utils.RandomString(32);
-        middleware.CreateSession(req, res, results[0].user_id, session);
+        middleware.CreateSession(req, res, results[0].id,results[0].role,session);
       } else if (
         results.length === 0 ||
         results[0].Password !== passwordHashed

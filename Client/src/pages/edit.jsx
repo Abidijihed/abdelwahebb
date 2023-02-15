@@ -19,10 +19,7 @@ import {
     Button,
     Textarea,
   } from "@material-tailwind/react";
-  import AccessibilityIcon from '@mui/icons-material/Accessibility';
-  import CheckIcon from '@mui/icons-material/Check';
-  import CloseIcon from '@mui/icons-material/Close';
-  import EditIcon from '@mui/icons-material/Edit';
+ 
   import { useEditableControls, useControllableState } from '@chakra-ui/react'
 export default function CustomControlsExample() {
     /* Here's a custom control */

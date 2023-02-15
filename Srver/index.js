@@ -4,11 +4,9 @@ const cookieParser = require('cookie-parser');
 require("dotenv").config();
 const cors = require('cors');
 const NodeMediaServer = require('node-media-server');
-// const RtspServer = require('node-rtsp-rtmp-server');
-//webSocket configuration
+
 const WebSocket = require('ws');
 const wss = new WebSocket.Server({ server: app }); 
-
 
 const {PosteRouter}=require("./Router/PosteRouter");
 
@@ -31,13 +29,13 @@ const config = {
 const nms = new NodeMediaServer(config);
 nms.run();
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://www.abdelwahebbouden.com");
+  res.header("Access-Control-Allow-Origin", "https://abdelwahebbouden.com");
   next();
 });
 app.use(
   cors({
-    origin: "http://www.abdelwahebbouden.com",
-    credentials: true, //access-control-allow-credentials:true
+    origin: "https://abdelwahebbouden.com",
+    credentials: false, //access-control-allow-credentials:true
     optionSuccessStatus: 200,
   })
 );
