@@ -17,9 +17,9 @@ if (token !== null) {
       element: <Home />,
     },
     // {
-    //   icon: UserCircleIcon,
-    //   name: "profile",
-    //   path: "/profile",
+    //   icon: ArrowRightOnRectangleIcon,
+    //   name: "Logout",
+    //   path: "/",
     //   element: <Profile />,
     // },
     // {

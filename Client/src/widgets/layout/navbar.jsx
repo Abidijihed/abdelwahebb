@@ -9,8 +9,9 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Block } from "@mui/icons-material";
 
-export function Navbar({brandTitle, brandName, routes, action }) {
+export function Navbar({ brandTitle, brandName, routes, action }) {
   const [openNav, setOpenNav] = React.useState(false);
 
   React.useEffect(() => {
@@ -65,25 +66,27 @@ export function Navbar({brandTitle, brandName, routes, action }) {
       <div className="container mx-auto flex items-center justify-between text-white">
         <Link to="/">
           <Typography className="mr-4 ml-2 cursor-pointer py-1.5 font-bold">
-           <h1 style={{fontSize:"40px"}}> {brandName}</h1>
+            <h1 style={{ fontSize: "40px" }}> {brandName}</h1>
             {brandTitle}
           </Typography>
         </Link>
         <div className="hidden lg:block">{navList}</div>
-       
-        <IconButton
-          variant="text"
-          size="sm"
-          color="white"
-          className="ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-          onClick={() => setOpenNav(!openNav)}
-        >
-          {openNav ? (
-            <XMarkIcon strokeWidth={2} className="h-6 w-6" />
-          ) : (
-            <Bars3Icon strokeWidth={2} className="h-6 w-6" />
-          )}
-        </IconButton>
+        <div style={{ display: "block" }}>
+          <IconButton
+            variant="text"
+            size="sm"
+            color="white"
+            className="ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+            onClick={() => setOpenNav(!openNav)}
+          >
+            {openNav ? (
+              <XMarkIcon strokeWidth={2} className="h-6 w-6" />
+            ) : (
+              <Bars3Icon strokeWidth={2} className="h-6 w-6" />
+            )}
+          </IconButton>
+          {openNav ? <div className="lg:block">{navList}</div> : null}
+        </div>
       </div>
     </MTNavbar>
   );
@@ -92,20 +95,18 @@ export function Navbar({brandTitle, brandName, routes, action }) {
 Navbar.defaultProps = {
   brandName: "Abdelwaheb BOUDEN",
   brandTitle: "Artistephilosophe",
-  
+
   action: (
     <a
       href="https://www.creative-tim.com/product/material-tailwind-kit-react"
       target="_blank"
-    >
-      
-    </a>
+    ></a>
   ),
 };
 
 Navbar.propTypes = {
   brandName: PropTypes.string,
-  brandTitle:PropTypes.string,
+  brandTitle: PropTypes.string,
   routes: PropTypes.arrayOf(PropTypes.object).isRequired,
   action: PropTypes.node,
 };
