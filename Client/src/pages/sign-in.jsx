@@ -29,7 +29,10 @@ export  class SignIn extends Component {
         password: password,
       })
       .then((res) => {
-        console.log(res.data);
+        localStorage.setItem("token",res[0])
+        localStorage.setItem("id",res[3])
+        localStorage.setItem("user",res[1])
+         window.location.href = "https://abdelwahebbouden.com/";
       });
   }
   handleChange(e) {

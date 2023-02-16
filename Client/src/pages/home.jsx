@@ -26,6 +26,7 @@ import axios from "axios";
 export function Home() {
   const [data, setData] = useState([]);
   const [datatext,setDatatext]=useState([])
+  var token=localStorage.getItem("token")
   const getdata=()=>{
     axios.get("https://abdelwahebbouden.com/api/get/allpostText").then((res) => {
       setDatatext(res.data);
@@ -40,12 +41,13 @@ export function Home() {
   }, []);
   const deletepost=(id)=>{
     axios.delete("https://abdelwahebbouden.com/api/get/deletePstText/"+id).then((res)=>{
-      console.log(res.data)
+      if (res.data === "post deleted") {
+        window.location.href = "https://abdelwahebbouden.com/";
+      }
     });
   }
   return (
     <>
-
       <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
         <div className="absolute top-0 h-full w-full bg-[url('http://cinematunisien.com/wp-content/uploads/2022/01/Abdelwaheb-Bouden-11.jpg')] bg-cover bg-center" />
         <div className="absolute top-0 h-full w-full bg-black/75 bg-cover bg-center" />
@@ -86,7 +88,7 @@ export function Home() {
           <br />
           <br />
           <Typography
-          id="mesfilm"
+            id="mesfilm"
             variant="h2"
             color="blue-gray"
             className="mb-6 font-black"
@@ -136,7 +138,7 @@ export function Home() {
           </div>
         </div>
       </section>
-      <AddnewPost />
+      {token.length > 0 ? <AddnewPost /> : null}
 
       <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
         <Typography variant="h2" className="mb-3 font-bold" color="blue-gray">
@@ -154,7 +156,7 @@ export function Home() {
           </PageTitle>
           <br />
           <br />
-          {datatext.map((el)=>{
+          {datatext.map((el) => {
             return (
               <>
                 <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
@@ -179,22 +181,24 @@ export function Home() {
                     {el.content}
                   </Typography>
                 </div>
-                <Ubdate post={el} />
-                <Button
-                  variant="primary"
-                  onClick={() => deletepost(el.id)}
-                  id="postbutton2"
-                >
-                 delete
-                </Button>
+                {token.length > 0 ? <Ubdate post={el} /> : null}
+                {token.length > 0 ? (
+                  <Button
+                    variant="primary"
+                    onClick={() => deletepost(el.id)}
+                    id="postbutton2"
+                  >
+                    delete
+                  </Button>
+                ) : null}
               </>
             );
           })}
-         
-         
+
           <br />
           <br />
-          <AddanewPostText />
+          {token.length > 0 ? <AddanewPostText /> : null}
+
           <br />
           <br />
           <PageTitle heading="Want to contact us?">

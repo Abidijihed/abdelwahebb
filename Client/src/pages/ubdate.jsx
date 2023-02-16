@@ -61,7 +61,7 @@ export class addnewtext extends Component {
           })
           .then((res) => {
             if (res.data === "update done") {
-              window.location.href = "https://abdelwahebbouden.com";
+              window.location.href = "https://abdelwahebbouden.com/";
             }
            
           })
@@ -77,7 +77,7 @@ export class addnewtext extends Component {
           })
           .then((res) => {
             if (res.data === "update done") {
-              window.location.href = "https://abdelwahebbouden.com";
+              window.location.href = "https://abdelwahebbouden.com/";
             }
             console.log(res)
           }).catch((err)=>{
