@@ -9,12 +9,12 @@ import { Form } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
 
 export class addnewtext extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       show: false,
       imageselected: [],
-      title: "",
+      title: props.post.title,
       content: "",
       bigTitle:""
      
@@ -31,6 +31,7 @@ export class addnewtext extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
   async addnewpost() {
+    var id=props.post.id
     const { imageselected, bigTitle, title, content } =
       this.state;
     var datavideo = "";
@@ -53,7 +54,7 @@ export class addnewtext extends Component {
           datavideo = "";
         }
         
-        axios.post("https://abdelwahebbouden.com/api/Create/NewPosteText", {
+        axios.put("https://abdelwahebbouden.com/api/get/updatepostText/"+id, {
             bigTitle:bigTitle,
             title: title,
             content: content,
@@ -69,7 +70,7 @@ export class addnewtext extends Component {
           
           })
         }else{
-            axios.post("https://abdelwahebbouden.com/api/Create/NewPoste", {
+            axios.put("https://abdelwahebbouden.com/api/get/updatepostText/"+id, {
             bigTitle:bigTitle,
             title: title,
             content: content,
@@ -98,7 +99,7 @@ export class addnewtext extends Component {
           onClick={() => this.handleShow()}
           id="postbutton"
         >
-          Add New Text
+          Update post
         </Button>
 
         <Modal show={show} onHide={() => this.handleClose()}>
@@ -122,6 +123,7 @@ export class addnewtext extends Component {
                 placeholder="Enter Title"
                 name="title"
                 onChange={(e) => this.handleChange(e)}
+                value={this.state.title}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicContent">
