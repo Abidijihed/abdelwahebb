@@ -49,4 +49,4 @@ id INT NOT NULL AUTO_INCREMENT,
     video VARCHAR(255),
     PRIMARY KEY (id)
 );
-insert into user(username,email,phone_number,password,photo,role) values("Abdelwaheb BOUDEN","abdelwahebbouden2020@gmail.com","+216 52 489 389","8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918","http://cinematunisien.com/wp-content/uploads/2022/01/Abdelwaheb-Bouden-11.jpg","Admin")
+insert into user(username,email,phone_number,password,photo,role) values("Abdelwaheb BOUDEN","abdelwahebbouden2020@gmail.com","+216 52 489 389","c1c224b03cd9bc7b6a86d77f5dace40191766c485cd55dc48caf9ac873335d6f","http://cinematunisien.com/wp-content/uploads/2022/01/Abdelwaheb-Bouden-11.jpg","Admin")

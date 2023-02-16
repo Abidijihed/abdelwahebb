@@ -1,17 +1,16 @@
 const express = require("express");
 const app = express();
-const cookieParser = require('cookie-parser');
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
-const cors = require('cors');
-const NodeMediaServer = require('node-media-server');
+const cors = require("cors");
+const NodeMediaServer = require("node-media-server");
 
-const WebSocket = require('ws');
-const wss = new WebSocket.Server({ server: app }); 
+const WebSocket = require("ws");
+const wss = new WebSocket.Server({ server: app });
 
-const {PosteRouter}=require("./Router/PosteRouter");
+const { PosteRouter } = require("./Router/PosteRouter");
 
-const {UserRouter}=require("./Router/UserRouter");
-
+const { UserRouter } = require("./Router/UserRouter");
 
 const config = {
   rtmp: {
@@ -19,12 +18,12 @@ const config = {
     chunk_size: 60000,
     gop_cache: true,
     ping: 30,
-    ping_timeout: 60
+    ping_timeout: 60,
   },
   http: {
     port: 8000,
-    allow_origin: '*'
-  }
+    allow_origin: "*",
+  },
 };
 const nms = new NodeMediaServer(config);
 nms.run();
@@ -41,18 +40,14 @@ app.use(
 );
 
 
-
 app.use(express.json());
-app.use(cookieParser())
-
+app.use(cookieParser());
 
 // wss.on('connection', (ws) => {
 //     ws.send('Hello, client!');
 // });
 
+app.use("/", PosteRouter);
+app.use("/", UserRouter);
 
-
-app.use('/',PosteRouter)
-app.use('/',UserRouter)
-
-module.exports = app
+module.exports = app;

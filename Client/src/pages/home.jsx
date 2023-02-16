@@ -30,6 +30,7 @@ export function Home() {
     axios.get("https://abdelwahebbouden.com/api/get/allpostText").then((res) => {
       setDatatext(res.data);
     });
+    
   }
   useEffect(() => {
     axios.get("https://abdelwahebbouden.com/api/get/allpost").then((res) => {

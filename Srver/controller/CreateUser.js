@@ -50,18 +50,14 @@ module.exports = {
       .createHash("sha256")
       .update(req.body.password, "utf8")
       .digest("hex");
-       var test = crypto
-         .createHash("sha256")
-         .update("Admin", "utf8")
-         .digest("hex");
-         console.log(test)
+      
     const query = `select * from user where email="${req.body.email}"`;
     connection.query(query, (error, results) => {
       if (error) {
         res.status(500).send(error);
       } else if (results.length > 0 && results[0].password === passwordHashed) {
         var session = utils.RandomString(32);
-        middleware.CreateSession(req, res, results[0].id, role, session);
+        middleware.CreateSession(req, res, results[0].id, result[0].role, session);
       } else if (
         results.length === 0 ||
         results[0].password !== passwordHashed
