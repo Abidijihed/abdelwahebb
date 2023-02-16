@@ -78,7 +78,6 @@ export class addpost extends Component {
     const { show, spiner } = this.state;
     return (
       <>
-        {console.log(this.state)}
         <Button
           variant="primary"
           onClick={() => this.handleShow()}

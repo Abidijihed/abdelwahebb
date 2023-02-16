@@ -154,34 +154,40 @@ export function Home() {
           <br />
           <br />
           {datatext.map((el)=>{
-            return(
+            return (
               <>
-               <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
-            <Typography
-              variant="h1"
-              className="mb-3 font-bold"
-              color="blue-gray"
-              id="naturetitle"
-            >
-             {el.bigTitle}
-            </Typography>
-            <br />
-            <Typography
-              variant="h3"
-              className="mb-3 font-bold"
-              color="blue-gray"
-              id="titlenatur"
-            >
-              {el.title}
-            </Typography>
-            <Typography className="mb-8 font-normal text-blue-gray-500">
-            {el.content}
-            </Typography>
-          </div>
-          <Ubdate post={el}/>
-          <button>delete</button>
+                <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
+                  <Typography
+                    variant="h1"
+                    className="mb-3 font-bold"
+                    color="blue-gray"
+                    id="naturetitle"
+                  >
+                    {el.bigTitle}
+                  </Typography>
+                  <br />
+                  <Typography
+                    variant="h3"
+                    className="mb-3 font-bold"
+                    color="blue-gray"
+                    id="titlenatur"
+                  >
+                    {el.title}
+                  </Typography>
+                  <Typography className="mb-8 font-normal text-blue-gray-500">
+                    {el.content}
+                  </Typography>
+                </div>
+                <Ubdate post={el} />
+                <Button
+                  variant="primary"
+                  onClick={() => deletepost()}
+                  id="postbutton2"
+                >
+                 Delete
+                </Button>
               </>
-            )
+            );
           })}
          
          

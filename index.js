@@ -3,18 +3,8 @@ const express = require("express")
 const port = 5500;
 const path = require("path");
 const cookieParser = require('cookie-parser');
-// const { createProxyMiddleware } = require('http-proxy-middleware');
 app.use(cookieParser())
 app.use(express.static(path.resolve(__dirname, './Client/dist')));
-
-// app.use(
-//   "/",
-//   createProxyMiddleware({
-//     target: "https://www.abdelwahebbouden.com",
-//     changeOrigin: false,
-//   })
-// );
-
 
 app.get('/', (req, res) => {
  
