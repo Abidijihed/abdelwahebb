@@ -179,7 +179,8 @@ export function Home() {
                   </Typography>
                   <Typography className="mb-8 font-normal text-blue-gray-500">
                     {el.content}
-                  </Typography>
+                  </Typography><br /><br/>
+                  <img src={el.imagees}  id="myimages"/>
                 </div>
                 {token !== null ? <Ubdate post={el} /> : null}
                 {token !== null ? (
@@ -188,7 +189,7 @@ export function Home() {
                     onClick={() => deletepost(el.id)}
                     id="postbutton2"
                   >
-                    delete
+                    Supprimer
                   </Button>
                 ) : null}
               </>

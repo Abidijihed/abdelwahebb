@@ -41,3 +41,7 @@ div#carousel {
         background-color: rgb(255, 0, 0) !important;
         float: right !important;
 }
+#myimages{
+    width: 400px;
+    height: 300px;
+}

@@ -97,7 +97,7 @@ export class addnewtext extends Component {
           onClick={() => this.handleShow()}
           id="postbutton1"
         >
-          Update post
+          Modifier le texte
         </Button>
 
         <Modal show={show} onHide={() => this.handleClose()}>

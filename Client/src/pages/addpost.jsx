@@ -83,7 +83,7 @@ export class addpost extends Component {
           onClick={() => this.handleShow()}
           id="postbutton"
         >
-          Add New Post
+          Ajouter une nouvelle vidéo
         </Button>
 
         <Modal show={show} onHide={() => this.handleClose()}>
