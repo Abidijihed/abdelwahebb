@@ -61,7 +61,7 @@ export class addnewtext extends Component {
           })
           .then((res) => {
             if (res.data === "poste done") {
-              window.location.href = "https://abdelwahebbouden.com/";
+              window.location.href = "https://abdelwahebbouden.com";
             }
            
           })
@@ -69,7 +69,7 @@ export class addnewtext extends Component {
           
           })
         }else{
-            axios.post("https://abdelwahebbouden.com/api/Create/NewPoste", {
+            axios.post("https://abdelwahebbouden.com/api/Create/NewPosteText", {
             bigTitle:bigTitle,
             title: title,
             content: content,
@@ -77,7 +77,7 @@ export class addnewtext extends Component {
           })
           .then((res) => {
             if (res.data === "poste done") {
-              window.location.href = "https://abdelwahebbouden.com/";
+              window.location.href = "https://abdelwahebbouden.com";
             }
             console.log(res)
           }).catch((err)=>{

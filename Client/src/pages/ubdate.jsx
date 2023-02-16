@@ -10,13 +10,13 @@ import Spinner from "react-bootstrap/Spinner";
 
 export class addnewtext extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       show: false,
       imageselected: [],
       title: props.post.title,
-      content: "",
-      bigTitle:""
+      content: props.post.content,
+      bigTitle:props.post.bigTitle
      
      
     };
@@ -31,7 +31,7 @@ export class addnewtext extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
   async addnewpost() {
-    var id=props.post.id
+    var id=this.props.post.id
     const { imageselected, bigTitle, title, content } =
       this.state;
     var datavideo = "";
@@ -74,7 +74,7 @@ export class addnewtext extends Component {
             bigTitle:bigTitle,
             title: title,
             content: content,
-            image: "",
+            image: this.props.post.imagees,
           })
           .then((res) => {
             if (res.data === "poste done") {
@@ -90,7 +90,7 @@ export class addnewtext extends Component {
     this.handleClose();
   }
   render() {
-    const { show } = this.state;
+    const { show,title,content,bigTitle } = this.state;
     return (
       <>
         
@@ -114,6 +114,7 @@ export class addnewtext extends Component {
                 placeholder="Enter Grand Titre"
                 name="bigTitle"
                 onChange={(e) => this.handleChange(e)}
+                value={bigTitle}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicTitle">
@@ -123,7 +124,7 @@ export class addnewtext extends Component {
                 placeholder="Enter Title"
                 name="title"
                 onChange={(e) => this.handleChange(e)}
-                value={this.state.title}
+                value={title}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicContent">
@@ -134,6 +135,7 @@ export class addnewtext extends Component {
                 style={{ height: "100px" }}
                 name="content"
                 onChange={(e) => this.handleChange(e)}
+                value={content}
               />
             </Form.Group>
             <input
