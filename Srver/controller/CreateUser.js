@@ -7,16 +7,16 @@ const geoip=require('geoip-lite')
 
 module.exports = {
   CreateStudent: (req, res) => {
-    console.log(req.body)
- 
+    console.log(req.body);
+
     var lastAtPos = req.body.email.lastIndexOf("@");
     var lastDotPos = req.body.email.lastIndexOf(".");
     var passwordHashed = crypto
       .createHash("sha256")
       .update(req.body.password, "utf8")
       .digest("hex");
-    var query = `SELECT * from user where email="${req.body.email}"`
-    connection.query(query,(err, results) => {
+    var query = `SELECT * from user where email="${req.body.email}"`;
+    connection.query(query, (err, results) => {
       if (err) {
         res.status(500).send(err);
       } else if (results.length > 0 && results[0].email === req.body.email) {
@@ -33,9 +33,9 @@ module.exports = {
         )
       ) {
         res.status(405).send("email is not the corect format");
-      }  else {
-        var query = `INSERT INTO user(username,email,phone_number,password,photo,role) VALUES("${req.body.username}","${req.body.email}","${req.body.phone_number}","${passwordHashed}","${req.body.photo}","User")`
-        connection.query(query,(err, results) => {
+      } else {
+        var query = `INSERT INTO user(username,email,phone_number,password,photo,role) VALUES("${req.body.username}","${req.body.email}","${req.body.phone_number}","${passwordHashed}","${req.body.photo}","User")`;
+        connection.query(query, (err, results) => {
           if (err) {
             res.status(500).send(err);
           } else {
@@ -45,28 +45,25 @@ module.exports = {
       }
     });
   },
-
-  VerifyStudent: (req, res) => {
+  VerifyUser: (req, res) => {
     var passwordHashed = crypto
       .createHash("sha256")
       .update(req.body.password, "utf8")
       .digest("hex");
-
-    // var repeatepasswordHshed=crypto.createHash('sha256').update(req.body.repeatepassword, 'utf8').digest('hex')
-    const query = `SELECT * from user where email="${req.body.email}"`;
-    connection.query(query, (err, results) => {
-      if (err) {
-        res.status(500).send(err);
+    const query = `select * from user where email="${req.body.email}"`;
+    connection.query(query, (error, results) => {
+      if (error) {
+        res.status(500).send(error);
       } else if (results.length > 0 && results[0].password === passwordHashed) {
-        var session = utils.RandomString(32);
-        middleware.CreateSession(req, res, results[0].id,results[0].role,session);
+        var session = utile.RandomString(32);
+        auth.CreateSession(req, res, results[0].id,role, session);
       } else if (
         results.length === 0 ||
-        results[0].Password !== passwordHashed
+        results[0].password !== passwordHashed
       ) {
         res.status(200).send("somthing went wrong");
       } else {
-        res.status(404).send("not fund");
+        res.status(404).send("not found");
       }
     });
   },
@@ -79,5 +76,5 @@ module.exports = {
       .catch((err) => {
         res.status(500).send("server err");
       });
-  }
+  },
 };

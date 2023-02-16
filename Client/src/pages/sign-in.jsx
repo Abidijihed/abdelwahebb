@@ -24,7 +24,7 @@ export  class SignIn extends Component {
   login(){
     const {email,password}=this.state
     axios
-      .get("https://abdelwahebbouden.com/api/login/user", {
+      .post("https://abdelwahebbouden.com/api/login/user", {
         email: email,
         password: password,
       })
