@@ -57,7 +57,13 @@ module.exports = {
         res.status(500).send(error);
       } else if (results.length > 0 && results[0].password === passwordHashed) {
         var session = utils.RandomString(32);
-        middleware.CreateSession(req, res, results[0].id, result[0].role, session);
+        middleware.CreateSession(
+          req,
+          res,
+          results[0].id,
+          results[0].role,
+          session
+        );
       } else if (
         results.length === 0 ||
         results[0].password !== passwordHashed
