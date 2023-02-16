@@ -37,6 +37,11 @@ export function Home() {
     });
     getdata()
   }, []);
+  const deletepost=()=>{
+    axios.delete("https://abdelwahebbouden.com/api/get/deletePstText/"+id).then((res)=>{
+      console.log(res.data)
+    });
+  }
   return (
     <>
 
@@ -174,6 +179,7 @@ export function Home() {
             </Typography>
           </div>
           <Ubdate post={el}/>
+          <button>delete</button>
               </>
             )
           })}

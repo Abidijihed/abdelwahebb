@@ -92,11 +92,10 @@ export class addnewtext extends Component {
     const { show,title,content,bigTitle } = this.state;
     return (
       <>
-        
         <Button
           variant="primary"
           onClick={() => this.handleShow()}
-          id="postbutton"
+          id="postbutton1"
         >
           Update post
         </Button>

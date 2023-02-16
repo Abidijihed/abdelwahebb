@@ -1,8 +1,9 @@
 {
-  "name": "material-tailwind-kit-react",
+  "name": "abdelwaheb-bouden",
   "private": true,
   "version": "2.0.0",
   "type": "module",
+  "homepage": "https://www.abdelwahebbouden.com/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
