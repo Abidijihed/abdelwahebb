@@ -5,5 +5,11 @@ module.exports={
         connection.query(query,(err,result)=>
           (err)?res.status(500).send(err):res.status(201).send(result)
         )
+      }),
+      GetAllPostesText:((req,res)=>{
+        const query=`select * from postestext`
+        connection.query(query,(err,result)=>
+          (err)?res.status(500).send(err):res.status(201).send(result)
+        )
       })
 }

@@ -24,13 +24,21 @@ import AddanewPostText from "./addnewtext"
 import axios from "axios";
 export function Home() {
   const [data, setData] = useState([]);
+  const [datatext,setDatatext]=useState([])
+  const getdata=()=>{
+    axios.get("https://abdelwahebbouden.com/api/get/allpostText").then((res) => {
+      setDatatext(res.data);
+    });
+  }
   useEffect(() => {
     axios.get("https://abdelwahebbouden.com/api/get/allpost").then((res) => {
       setData(res.data);
     });
+    getdata()
   }, []);
   return (
     <>
+    {console.log(datatext)}
       <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
         <div className="absolute top-0 h-full w-full bg-[url('http://cinematunisien.com/wp-content/uploads/2022/01/Abdelwaheb-Bouden-11.jpg')] bg-cover bg-center" />
         <div className="absolute top-0 h-full w-full bg-black/75 bg-cover bg-center" />
@@ -122,6 +130,7 @@ export function Home() {
         </div>
       </section>
       <AddnewPost />
+
       <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
         <Typography variant="h2" className="mb-3 font-bold" color="blue-gray">
           Nature, beauté, amour et liberté
@@ -138,7 +147,34 @@ export function Home() {
           </PageTitle>
           <br />
           <br />
-         
+          {datatext.map(()=>{
+            return(
+              <>
+               <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
+            <Typography
+              variant="h1"
+              className="mb-3 font-bold"
+              color="blue-gray"
+              id="naturetitle"
+            >
+             
+            </Typography>
+            <br />
+            <Typography
+              variant="h3"
+              className="mb-3 font-bold"
+              color="blue-gray"
+              id="titlenatur"
+            >
+              La compagne
+            </Typography>
+            <Typography className="mb-8 font-normal text-blue-gray-500">
+        
+            </Typography>
+          </div>
+              </>
+            )
+          })}
           <br />
           <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
             <Typography
