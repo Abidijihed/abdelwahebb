@@ -73,7 +73,7 @@ export  class SignIn extends Component {
               </div>
             </CardBody>
             <CardFooter className="pt-0">
-              <Button variant="gradient" fullWidth>
+              <Button variant="gradient" fullWidth onClick={()=>login()}>
                 Sign In
               </Button>
               <Typography variant="small" className="mt-6 flex justify-center">
