@@ -29,9 +29,9 @@ export  class SignIn extends Component {
         password: password,
       })
       .then((res) => {
-        localStorage.setItem("token",res[0])
-        localStorage.setItem("id",res[3])
-        localStorage.setItem("user",res[1])
+        localStorage.setItem("token",res.data[0])
+        localStorage.setItem("id", res.data[3]);
+        localStorage.setItem("user", res.data[1]);
          window.location.href = "https://abdelwahebbouden.com/";
       });
   }
