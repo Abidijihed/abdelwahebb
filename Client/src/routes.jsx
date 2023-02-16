@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/24/solid";
 const token =localStorage.getItem("token")
 export var routes=[]
-if (token !== "undefined") {
+if (token !== null) {
   routes = [
     {
       icon: HomeIcon,

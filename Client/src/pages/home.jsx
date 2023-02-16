@@ -138,7 +138,7 @@ export function Home() {
           </div>
         </div>
       </section>
-      {token !== "undefined" ? <AddnewPost /> : null}
+      {token !== null ? <AddnewPost /> : null}
 
       <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
         <Typography variant="h2" className="mb-3 font-bold" color="blue-gray">
@@ -181,8 +181,8 @@ export function Home() {
                     {el.content}
                   </Typography>
                 </div>
-                {token !== "undefined" ? <Ubdate post={el} /> : null}
-                {token !== "undefined" ? (
+                {token !== null ? <Ubdate post={el} /> : null}
+                {token !== null ? (
                   <Button
                     variant="primary"
                     onClick={() => deletepost(el.id)}
@@ -197,7 +197,7 @@ export function Home() {
 
           <br />
           <br />
-          {token !== "undefined" ? <AddanewPostText /> : null}
+          {token !== null ? <AddanewPostText /> : null}
 
           <br />
           <br />
