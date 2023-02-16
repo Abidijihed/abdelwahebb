@@ -42,6 +42,7 @@ export class addnewtext extends Component {
     await axios
       .post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formData)
       .then((res) => {
+        console.log(res.data)
         if (res.data.url.slice(res.data.url.length - 4) === ".mp4") {
           dataimage = "";
           datavideo = res.data.url;
@@ -73,7 +74,7 @@ export class addnewtext extends Component {
             bigTitle:bigTitle,
             title: title,
             content: content,
-            image: this.props.post.imagees,
+            imagees: this.props.post.imagees,
           })
           .then((res) => {
             if (res.data === "update done") {
