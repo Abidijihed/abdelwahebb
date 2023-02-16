@@ -107,7 +107,7 @@ export class addnewtext extends Component {
           </Modal.Header>
           <Modal.Body>
             <Form.Group className="mb-3" controlId="formBasicTitle">
-              <Form.Label>Grand Titre</Form.Label>
+              <Form.Label>Titre</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter Grand Titre"
@@ -117,7 +117,7 @@ export class addnewtext extends Component {
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicTitle">
-              <Form.Label>Titre</Form.Label>
+              <Form.Label>Sous Titre</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter Title"
