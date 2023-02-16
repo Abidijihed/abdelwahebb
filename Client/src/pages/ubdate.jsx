@@ -1,4 +1,3 @@
-// 164.90.183.141
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
@@ -6,7 +5,7 @@ import axios from "axios";
 import React, { Component } from "react";
 import { Form } from "react-bootstrap";
 
-import Spinner from "react-bootstrap/Spinner";
+
 
 export class addnewtext extends Component {
   constructor(props) {
@@ -61,8 +60,8 @@ export class addnewtext extends Component {
             imagees: dataimage,
           })
           .then((res) => {
-            if (res.data === "poste done") {
-              window.location.href = "https://abdelwahebbouden.com/";
+            if (res.data === "update done") {
+              window.location.href = "https://abdelwahebbouden.com";
             }
            
           })
@@ -77,8 +76,8 @@ export class addnewtext extends Component {
             image: this.props.post.imagees,
           })
           .then((res) => {
-            if (res.data === "poste done") {
-              window.location.href = "https://abdelwahebbouden.com/";
+            if (res.data === "update done") {
+              window.location.href = "https://abdelwahebbouden.com";
             }
             console.log(res)
           }).catch((err)=>{
