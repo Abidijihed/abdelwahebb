@@ -55,8 +55,8 @@ module.exports = {
       if (error) {
         res.status(500).send(error);
       } else if (results.length > 0 && results[0].password === passwordHashed) {
-        var session = utile.RandomString(32);
-        auth.CreateSession(req, res, results[0].id,role, session);
+        var session = utils.RandomString(32);
+        middleware.CreateSession(req, res, results[0].id, role, session);
       } else if (
         results.length === 0 ||
         results[0].password !== passwordHashed
