@@ -37,7 +37,7 @@ export function Home() {
     });
     getdata()
   }, []);
-  const deletepost=()=>{
+  const deletepost=(id)=>{
     axios.delete("https://abdelwahebbouden.com/api/get/deletePstText/"+id).then((res)=>{
       console.log(res.data)
     });
@@ -181,10 +181,10 @@ export function Home() {
                 <Ubdate post={el} />
                 <Button
                   variant="primary"
-                  onClick={() => deletepost()}
+                  onClick={() => deletepost(el.id)}
                   id="postbutton2"
                 >
-                 Delete
+                 delete
                 </Button>
               </>
             );

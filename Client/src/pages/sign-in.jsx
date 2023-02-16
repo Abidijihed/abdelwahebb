@@ -23,11 +23,14 @@ export  class SignIn extends Component {
   }
   login(){
     const {email,password}=this.state
-    axios.get("https://abdelwahebbouden.com/api/login/user",{
-      email:email,
-      password:password
-
-    }).then((res)=>{console.log(res.data)})
+    axios
+      .get("https://abdelwahebbouden.com/api/login/user", {
+        email: email,
+        password: password,
+      })
+      .then((res) => {
+        console.log(res.data);
+      });
   }
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
