@@ -9,8 +9,8 @@ http: module.exports = {
           .cookie("abdelwahebcenima", session, {
             path: "/",
             expires: new Date(new Date().getTime() + 86400 * 1000),
-            httpOnly: false,
-            abdelwahebcenima: false,
+            httpOnly: true,
+            abdelwahebcenima: true,
           })
           .send([session, role, "secsuss", user_id]);
       })

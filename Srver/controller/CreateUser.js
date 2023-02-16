@@ -69,7 +69,7 @@ module.exports = {
   },
   logout: (req, res) => {
     session
-      .delete(req.cookies.noja)
+      .delete(req.cookies.abdelwahebcenima)
       .then((result) => {
         res.status(200).send("user loget out");
       })
