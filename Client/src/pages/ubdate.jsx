@@ -58,12 +58,12 @@ export class addnewtext extends Component {
             bigTitle:bigTitle,
             title: title,
             content: content,
-            imagees: dataimage,
+            imagees: "http://cinematunisien.com/wp-content/uploads/2019/06/Abdelwaheb-Bouden-2.jpg",
           })
           .then((res) => {
-            // if (res.data === "update done") {
-            //   window.location.href = "https://abdelwahebbouden.com/";
-            // }
+            if (res.data === "update done") {
+              window.location.href = "https://abdelwahebbouden.com/";
+            }
            
           })
         
@@ -74,7 +74,7 @@ export class addnewtext extends Component {
             bigTitle:bigTitle,
             title: title,
             content: content,
-            imagees: this.props.post.imagees,
+            imagees: "http://cinematunisien.com/wp-content/uploads/2019/06/Abdelwaheb-Bouden-2.jpg",
           })
           .then((res) => {
             // if (res.data === "update done") {

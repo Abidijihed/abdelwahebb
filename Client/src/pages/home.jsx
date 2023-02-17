@@ -180,7 +180,7 @@ export function Home() {
                   <Typography className="mb-8 font-normal text-blue-gray-500">
                     {el.content}
                   </Typography><br /><br/>
-                  <img src="http://cinematunisien.com/wp-content/uploads/2019/06/Abdelwaheb-Bouden-2.jpg"  id="myimages"/>
+                  <img src={el.imagees}  id="myimages"/>
                 </div>
                 {token !== null ? <Ubdate post={el} /> : null}
                 {token !== null ? (
