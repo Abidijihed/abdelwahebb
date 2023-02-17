@@ -61,9 +61,9 @@ export class addnewtext extends Component {
             imagees: dataimage,
           })
           .then((res) => {
-            if (res.data === "update done") {
-              window.location.href = "https://abdelwahebbouden.com/";
-            }
+            // if (res.data === "update done") {
+            //   window.location.href = "https://abdelwahebbouden.com/";
+            // }
            
           })
         
@@ -77,9 +77,9 @@ export class addnewtext extends Component {
             imagees: this.props.post.imagees,
           })
           .then((res) => {
-            if (res.data === "update done") {
-              window.location.href = "https://abdelwahebbouden.com/";
-            }
+            // if (res.data === "update done") {
+            //   window.location.href = "https://abdelwahebbouden.com/";
+            // }
             console.log(res)
           }).catch((err)=>{
             console.log(err)
