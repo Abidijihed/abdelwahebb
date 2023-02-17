@@ -53,7 +53,7 @@ export class addnewtext extends Component {
           dataimage = res.data.url;
           datavideo = "";
         }
-        
+        console.log(dataimage)
         axios.put("https://abdelwahebbouden.com/api/get/updatepostText/"+id, {
             bigTitle:bigTitle,
             title: title,
