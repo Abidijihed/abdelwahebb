@@ -14,9 +14,7 @@ export class addnewcasting extends Component {
       imageselected: [],
       title: "",
       content: "",
-      comments: "",
-      numberr: "",
-      likes: "",
+     
     };
   }
   handleClose() {
@@ -29,7 +27,7 @@ export class addnewcasting extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
   async addnewpost() {
-    const { imageselected, comments, title, likes, content, numberr } =
+    const { imageselected, title, content } =
       this.state;
     var datavideo = "";
     var dataimage = "";

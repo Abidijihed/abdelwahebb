@@ -15,7 +15,7 @@ export function ControlledCarousel() {
 
   const [casting,setCasting]=useState([])
   useEffect(()=>{
-  axios.get('"https://abdelwahebbouden.com/api/get/casting/post').then((res)=>{
+  axios.get('https://abdelwahebbouden.com/api/get/casting/post').then((res)=>{
     setCasting(res.data)
   })
   },[])
