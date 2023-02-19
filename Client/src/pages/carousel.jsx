@@ -9,6 +9,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import AddnewCasting from "./addnewcasting"
+import Updatecasting from "./uppdatecasting"
 import axios from 'axios';
 export function ControlledCarousel() {
   var token=localStorage.getItem("token")
@@ -50,6 +51,8 @@ export function ControlledCarousel() {
           
           </Row>
           </Col>
+          {token !== null ? <Updatecasting post={el} /> : null}
+
       </Row>
     )
   })  }

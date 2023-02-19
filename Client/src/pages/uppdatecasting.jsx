@@ -6,14 +6,16 @@ import React, { Component } from "react";
 import { Form } from "react-bootstrap";
 
 
-export class addnewcasting extends Component {
-  constructor() {
-    super();
+
+export class updatepostes extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
       show: false,
       imageselected: [],
-      title: "",
-      content: "",
+      title: props.post.title,
+      content: props.post.content,
+     
      
     };
   }
@@ -27,56 +29,62 @@ export class addnewcasting extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
   async addnewpost() {
-    const { imageselected, title, content } =
+    var id=this.props.post.id
+    const { imageselected, numberr, title, content } =
       this.state;
-    var datavideo = "";
-    var dataimage = "";
+  
     const formData = new FormData();
     formData.append("file", imageselected);
     formData.append("upload_preset", "kgiezron");
+    if(imageselected.length>0){
     await axios
       .post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formData)
       .then((res) => {
-        if (res.data.url.slice(res.data.url.length - 4) === ".mp4") {
-          dataimage = "";
-          datavideo = res.data.url;
-        } else if (
-          res.data.url.slice(res.data.url.length - 4) === ".png" ||
-          res.data.url.slice(res.data.url.length - 4) === ".jpg"
-        ) {
-          dataimage = res.data.url;
-          datavideo = "";
-        }
-        console.log(datavideo);
-        axios
-          .post("https://abdelwahebbouden.com/api/addnew/casting", {
+    
+        axios.put("https://abdelwahebbouden.com/api/update/post/"+id, {
+            numberr:numberr,
             title: title,
             content: content,
-            video: datavideo,
+            video:res.data.url,
           })
           .then((res) => {
-            console.log(res)
-            // if (res.data === "poste done") {
-            //   window.location.href = "https://abdelwahebbouden.com/";
-            // }
+            if (res.data === "post updated") {
+              window.location.href = "https://abdelwahebbouden.com/";
+            }
+           
           })
-          .catch((err) => {
-            console.log(err);
-          });
-      });
+        
+          })
+        }else{
+            axios.put("https://abdelwahebbouden.com/api/update/post/"+id, {
+            numberr:numberr,
+            title: title,
+            content: content,
+            video:this.props.psot.video,
+          })
+          .then((res) => {
+            if (res.data === "post updated") {
+              window.location.href = "https://abdelwahebbouden.com/";
+            }
+            console.log(res)
+          }).catch((err)=>{
+            console.log(err)
+          })
+        }
+   
 
     this.handleClose();
   }
   render() {
-    const { show, spiner } = this.state;
+    const { show,title,content } = this.state;
     return (
       <>
         <Button
           variant="primary"
           onClick={() => this.handleShow()}
-          id="postbutton"
+          id="postbutton1"
         >
-          Ajouter une nouvelle vidéo
+          Modifier le texte
         </Button>
 
         <Modal show={show} onHide={() => this.handleClose()}>
@@ -84,13 +92,15 @@ export class addnewcasting extends Component {
             <Modal.Title>Modal heading</Modal.Title>
           </Modal.Header>
           <Modal.Body>
+           
             <Form.Group className="mb-3" controlId="formBasicTitle">
-              <Form.Label>Title</Form.Label>
+              <Form.Label>Sous Titre</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter Title"
                 name="title"
                 onChange={(e) => this.handleChange(e)}
+                value={title}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicContent">
@@ -101,10 +111,9 @@ export class addnewcasting extends Component {
                 style={{ height: "100px" }}
                 name="content"
                 onChange={(e) => this.handleChange(e)}
+                value={content}
               />
             </Form.Group>
-          
-
             <input
               type="file"
               accept="image/*,.mp4"
@@ -117,7 +126,7 @@ export class addnewcasting extends Component {
             <div className="label">
               <label className="image-upload" htmlFor="input">
                 <AddAPhotoIcon />
-                Choose your video
+                Choose your video or photo
               </label>
             </div>
           </Modal.Body>
@@ -127,14 +136,14 @@ export class addnewcasting extends Component {
               onClick={() => this.handleClose()}
               id="postbutton1"
             >
-              Close
+              Ferme
             </Button>
             <Button
               variant="primary"
               onClick={() => this.addnewpost()}
               id="postbutton"
             >
-              Save Changes
+              Sauvgarder 
             </Button>
           </Modal.Footer>
         </Modal>
@@ -143,4 +152,4 @@ export class addnewcasting extends Component {
   }
 }
 
-export default addnewcasting;
+export default updatepostes;
