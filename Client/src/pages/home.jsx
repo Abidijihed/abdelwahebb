@@ -161,7 +161,10 @@ export function Home() {
          
         </Typography>
       </div>
+      <div id="mycarouselsect">
       <Carousel />
+      </div>
+      
       <section className="relative bg-blue-gray-50/50 py-24 px-4">
         <div className="container mx-auto">
           <PageTitle heading="Mon cinéma"></PageTitle>
@@ -173,7 +176,6 @@ export function Home() {
           <br />
           <br />
           {datatext.map((el) => {
-            console.log(el)
             return (
               <>
                 <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">

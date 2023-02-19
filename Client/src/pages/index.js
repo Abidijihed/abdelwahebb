@@ -7,3 +7,4 @@ export * from "@/pages/addpost";
 export * from "@/pages/addnewtext";
 export * from "@/pages/ubdate";
 export * from "@/pages/updatepostes";
+export * from "@/pages/addnewcasting"
