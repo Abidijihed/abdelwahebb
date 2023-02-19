@@ -89,7 +89,7 @@ Footer.defaultProps = {
   ],
   copyright: (
     <>
-      Copyright © {2023} Adelwaheb BOUDEN  développer par{"Jihed ABIDI"}
+      Copyright © {2023} Adelwaheb BOUDEN 
       
       .
     </>

@@ -30,7 +30,7 @@ export class updatepostes extends Component {
   }
   async addnewpost() {
     var id=this.props.post.id
-    const { imageselected, numberr, title, content } =
+    const { imageselected, title, content } =
       this.state;
   
     const formData = new FormData();
@@ -42,7 +42,7 @@ export class updatepostes extends Component {
       .then((res) => {
     
         axios.put("https://abdelwahebbouden.com/api/update/casting/"+id, {
-            numberr:numberr,
+         
             title: title,
             content: content,
             imagee:res.data.url,
