@@ -14,10 +14,7 @@ import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCard, TeamCard } from "@/widgets/cards";
 import { featuresData, teamData, contactData } from "@/data";
 import "./Home.css";
-import film5 from "../assets/lastfilm5.mp4";
-import film4 from "../assets/lastfilm4.mp4";
-import film3 from "../assets/lastfilm3.mp4";
-import film2 from "../assets/lastfilm2.mp4";
+
 import Carousel from "./carousel";
 import AddnewPost from "./addpost";
 import AddanewPostText from "./addnewtext"
@@ -75,7 +72,8 @@ export function Home() {
                 fontWeight="400"
               >
                 Mon cinéma est d’inspiration philosophique, esthétique et
-                écologique.
+                écologique.<br/>
+                Nature, beauté, amour et liberté
               </Typography>
             </div>
           </div>
@@ -159,6 +157,7 @@ export function Home() {
           <br />
           <br />
           {datatext.map((el) => {
+            console.log(el)
             return (
               <>
                 <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
