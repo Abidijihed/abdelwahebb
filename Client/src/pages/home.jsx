@@ -158,7 +158,7 @@ export function Home() {
       
       <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
         <Typography variant="h2" className="mb-3 font-bold" color="blue-gray">
-          Nature, beauté, amour et liberté
+         
         </Typography>
       </div>
       <Carousel />
@@ -197,7 +197,7 @@ export function Home() {
                   <Typography className="mb-8 font-normal text-blue-gray-500">
                     {el.content}
                   </Typography><br /><br/>
-                 {el.imagees.length>0 ? <img src={el.imagees}  id="myimages"/>:null}
+                 {el.imagees!=="undefined" ? <img src={el.imagees}  id="myimages"/>:null}
                 </div>
                 {token !== null ? <Ubdate post={el} /> : null}
                 {token !== null ? (

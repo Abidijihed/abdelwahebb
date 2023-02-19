@@ -5,50 +5,26 @@ import image1 from "../assets/image1.jpg"
 import image2 from "../assets/image2.jpg"
 import image3 from "../assets/image3.jpg"
 import image4 from "../assets/image4.jpg"
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export function ControlledCarousel() {
-  const [index, setIndex] = useState(0);
-
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
-
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect} id="carousel">
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={image1}
-          alt="First slide"
-        />
-    
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={image2}
-          alt="First slide"
-        />
-    
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={image3}
-          alt="First slide"
-        />
-    
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={image4}
-          alt="First slide"
-        />
-    
-      </Carousel.Item>
-    </Carousel>
+    <Container>
+      <Row>
+        <Col>
+        <img src={image1}/>
+        </Col>
+        <Col>
+        
+        <Row>
+        <Col sm={4}>sm=8</Col>
+        <Col  sm={8}>sm=4</Col>
+      </Row></Col>
+      </Row>
+    </Container>
   );
 }
 
-export default  ControlledCarousel
+export default ControlledCarousel;
