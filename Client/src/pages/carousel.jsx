@@ -11,6 +11,16 @@ import Col from 'react-bootstrap/Col';
 import AddnewCasting from "./addnewcasting"
 import Updatecasting from "./uppdatecasting"
 import axios from 'axios';
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  Typography,
+  Button,
+  IconButton,
+  Input,
+  Textarea,
+} from "@material-tailwind/react";
 export function ControlledCarousel() {
   var token=localStorage.getItem("token")
 
