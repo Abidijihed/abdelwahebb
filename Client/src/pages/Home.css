@@ -36,6 +36,7 @@ div#carousel {
 }
 #postbutton1 {
     background-color: rgb(255, 196, 0) !important;
+    margin-bottom: 30px !important;
 }
 #postbutton2{
         background-color: rgb(255, 0, 0) !important;

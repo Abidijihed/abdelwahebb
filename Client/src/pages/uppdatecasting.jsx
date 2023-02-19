@@ -45,7 +45,7 @@ export class updatepostes extends Component {
             numberr:numberr,
             title: title,
             content: content,
-            video:res.data.url,
+            imagee:res.data.url,
           })
           .then((res) => {
             if (res.data === "post updated") {
@@ -60,7 +60,7 @@ export class updatepostes extends Component {
             numberr:numberr,
             title: title,
             content: content,
-            video:this.props.psot.video,
+            imagee:this.props.psot.imagee,
           })
           .then((res) => {
             if (res.data === "post updated") {

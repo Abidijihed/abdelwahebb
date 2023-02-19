@@ -21,6 +21,7 @@ import {
   Input,
   Textarea,
 } from "@material-tailwind/react";
+import { CLOSING } from 'ws';
 export function ControlledCarousel() {
   var token=localStorage.getItem("token")
 
@@ -30,10 +31,16 @@ export function ControlledCarousel() {
     setCasting(res.data)
   })
   },[])
+  const deletecasting=(id)=>{
+   axios.delete('https://abdelwahebbouden.com//api/delete/casting/'+id).then((res)=>{
+    console.log(res)
+   })
+  }
   return (
     <Container>
   {  casting.map((el)=>{
     return(
+      <>
 <Row>
         <Col>
           <img src={image1} />
@@ -64,6 +71,16 @@ export function ControlledCarousel() {
           {token !== null ? <Updatecasting post={el} /> : null}
 
       </Row>
+      {token !== null ? (
+        <Button
+          variant="primary"
+          onClick={() => deletecasting(el.id)}
+          id="postbutton2"
+        >
+          Supprimer
+        </Button>
+      ) : null}
+     </>
     )
   })  }
       {token !== null ? <AddnewCasting /> : null}
