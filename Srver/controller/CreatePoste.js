@@ -13,5 +13,17 @@ module.exports={
           connection.query(query,(err,result)=>
             (err)?res.status(500).send(err):res.status(201).send('poste done')
           )
+        }),
+        updatepost:((req,res)=>{
+          const query=`UPDATE postes SET title="${req.body.title}",content="${req.body.content}",numberr="${req.body.numberr}",video="${req.body.video}" WHERE id=${req.params.id}`
+          connection.query(query,(err,result)=>{
+            err ? res.status(500).send(err):res.status(200).send("post updated")
+          })
+        }),
+        deletepost:((req,res)=>{
+          const query=`DELETE FROM postes WHERE id=${req.params.id}`
+          connection.query(query,(err,result)=>{
+            err ? res.status(500).send(err):res.status(200).send('post deleted')
+          })
         })
 }

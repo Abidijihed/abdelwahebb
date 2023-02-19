@@ -9,5 +9,6 @@ router.post('/api/Create/NewPosteText',PosteController.createPostText)
 router.get('/api/get/allpostText',getcontroller.GetAllPostesText)
 router.put('/api/get/updatepostText/:id',updatecontroller.UpdatePostText)
 router.delete("/api/get/deletePstText/:id", deletepostcontroller.Deletepost);
-
+router.put("/api/update/post/:id",PosteController.updatepost)
+router.delete("/api/delete/postes/:id",PosteController.deletepost)
 module.exports={PosteRouter:router}
