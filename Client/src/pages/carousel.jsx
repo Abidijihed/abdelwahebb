@@ -32,7 +32,7 @@ export function ControlledCarousel() {
   })
   },[])
   const deletecasting=(id)=>{
-   axios.delete('https://abdelwahebbouden.com//api/delete/casting/'+id).then((res)=>{
+   axios.delete('https://abdelwahebbouden.com/api/delete/casting/'+id).then((res)=>{
     console.log(res)
    })
   }

@@ -60,7 +60,7 @@ export class updatepostes extends Component {
             numberr:numberr,
             title: title,
             content: content,
-            imagee:this.props.psot.imagee,
+            imagee:"",
           })
           .then((res) => {
             if (res.data === "post updated") {
