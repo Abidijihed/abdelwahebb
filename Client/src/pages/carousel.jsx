@@ -11,6 +11,8 @@ import Col from 'react-bootstrap/Col';
 import AddnewCasting from "./addnewcasting"
 import axios from 'axios';
 export function ControlledCarousel() {
+  var token=localStorage.getItem("token")
+
   const [casting,setCasting]=useState([])
   useEffect(()=>{
   axios.get('"https://abdelwahebbouden.com/api/get/casting/post').then((res)=>{
