@@ -41,17 +41,17 @@ export class updatepostes extends Component {
       .post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formData)
       .then((res) => {
     
-        axios.put("https://abdelwahebbouden.com/api/update/post/"+id, {
+        axios.put("https://abdelwahebbouden.com/api/update/casting/"+id, {
             numberr:numberr,
             title: title,
             content: content,
             imagee:res.data.url,
           })
           .then((res) => {
-            if (res.data === "post updated") {
-              window.location.href = "https://abdelwahebbouden.com/";
-            }
-           
+            // if (res.data === "post updated") {
+            //   window.location.href = "https://abdelwahebbouden.com/";
+            // }
+           console.log(res)
           })
         
           })

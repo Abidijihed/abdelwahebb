@@ -43,7 +43,7 @@ export function ControlledCarousel() {
       <>
 <Row>
         <Col>
-          <img src={image1} />
+         { el.imagee ? <img src={el.imagee} />:<img src={image1} />}
         </Col>
         <Col>
 
