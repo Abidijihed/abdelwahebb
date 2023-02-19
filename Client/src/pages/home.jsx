@@ -44,6 +44,13 @@ export function Home() {
       }
     });
   }
+  const deletepostbandanonce=(id)=>{
+    axios.delete("https://abdelwahebbouden.com/api/delete/postes/"+id).then((res)=>{
+      if (res.data === "post deleted") {
+        window.location.href = "https://abdelwahebbouden.com/";
+      }
+    });
+  }
   return (
     <>
       <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
@@ -132,6 +139,15 @@ export function Home() {
                     </Card>
                   </div>
                   {token !== null ? <Updatepostes post={el}/>:null}
+                  {token !== null ? (
+                  <Button
+                    variant="primary"
+                    onClick={() => deletepostbandanonce(el.id)}
+                    id="postbutton2"
+                  >
+                    Supprimer
+                  </Button>
+                ) : null}
                 </>
               );
             })}
