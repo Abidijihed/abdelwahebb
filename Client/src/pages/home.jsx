@@ -21,6 +21,7 @@ import film2 from "../assets/lastfilm2.mp4";
 import Carousel from "./carousel";
 import AddnewPost from "./addpost";
 import AddanewPostText from "./addnewtext"
+import Updatepostes from './updatepostes'
 import Ubdate from './ubdate'
 import axios from "axios";
 export function Home() {
@@ -132,6 +133,7 @@ export function Home() {
                       </CardBody>
                     </Card>
                   </div>
+                  {token !== null ? <Updatepostes post={el}/>:null}
                 </>
               );
             })}
@@ -139,7 +141,7 @@ export function Home() {
         </div>
       </section>
       {token !== null ? <AddnewPost /> : null}
-
+      
       <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
         <Typography variant="h2" className="mb-3 font-bold" color="blue-gray">
           Nature, beauté, amour et liberté
@@ -180,7 +182,7 @@ export function Home() {
                   <Typography className="mb-8 font-normal text-blue-gray-500">
                     {el.content}
                   </Typography><br /><br/>
-                  <img src={el.imagees}  id="myimages"/>
+                 {el.imagees.length>0 ? <img src={el.imagees}  id="myimages"/>:null}
                 </div>
                 {token !== null ? <Ubdate post={el} /> : null}
                 {token !== null ? (
