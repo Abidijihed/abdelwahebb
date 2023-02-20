@@ -29,36 +29,23 @@ export class addnewcasting extends Component {
   async addnewpost() {
     const { imageselected, title, content } =
       this.state;
-    var datavideo = "";
-    var dataimage = "";
     const formData = new FormData();
     formData.append("file", imageselected);
     formData.append("upload_preset", "kgiezron");
     await axios
       .post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formData)
       .then((res) => {
-        if (res.data.url.slice(res.data.url.length - 4) === ".mp4") {
-          dataimage = "";
-          datavideo = res.data.url;
-        } else if (
-          res.data.url.slice(res.data.url.length - 4) === ".png" ||
-          res.data.url.slice(res.data.url.length - 4) === ".jpg"
-        ) {
-          dataimage = res.data.url;
-          datavideo = "";
-        }
-        console.log(datavideo);
         axios
           .post("https://abdelwahebbouden.com/api/addnew/casting", {
             title: title,
             content: content,
-            video: datavideo,
+            video: res.data.url,
           })
           .then((res) => {
             console.log(res)
-            // if (res.data === "poste done") {
-            //   window.location.href = "https://abdelwahebbouden.com/";
-            // }
+            if (res.data === "poste done") {
+              window.location.href = "https://abdelwahebbouden.com/";
+            }
           })
           .catch((err) => {
             console.log(err);
@@ -76,7 +63,7 @@ export class addnewcasting extends Component {
           onClick={() => this.handleShow()}
           id="postbutton"
         >
-          Ajouter une nouvelle vidéo
+          Ajouter un nouveau casting
         </Button>
 
         <Modal show={show} onHide={() => this.handleClose()}>

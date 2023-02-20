@@ -33,25 +33,13 @@ export class addpost extends Component {
   async addnewpost() {
     const { imageselected, comments, title, likes, content, numberr } =
       this.state;
-    var datavideo = "";
-    var dataimage = "";
     const formData = new FormData();
     formData.append("file", imageselected);
     formData.append("upload_preset", "kgiezron");
     await axios
       .post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formData)
       .then((res) => {
-        if (res.data.url.slice(res.data.url.length - 4) === ".mp4") {
-          dataimage = "";
-          datavideo = res.data.url;
-        } else if (
-          res.data.url.slice(res.data.url.length - 4) === ".png" ||
-          res.data.url.slice(res.data.url.length - 4) === ".jpg"
-        ) {
-          dataimage = res.data.url;
-          datavideo = "";
-        }
-        console.log(datavideo);
+      
         axios
           .post("https://abdelwahebbouden.com/api/Create/NewPoste", {
             title: title,
@@ -60,7 +48,7 @@ export class addpost extends Component {
             comments: "comments",
             likes: "0",
             numberr: numberr,
-            video: datavideo,
+            video: res.data.url,
           })
           .then((res) => {
             if (res.data === "poste done") {

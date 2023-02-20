@@ -42,23 +42,13 @@ export class updatepostes extends Component {
     await axios
       .post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formData)
       .then((res) => {
-        console.log(res.data)
-        if (res.data.url.slice(res.data.url.length - 4) === ".mp4") {
-          dataimage = "";
-          datavideo = res.data.url;
-        } else if (
-          res.data.url.slice(res.data.url.length - 4) === ".png" ||
-          res.data.url.slice(res.data.url.length - 4) === ".jpg"
-        ) {
-          dataimage = res.data.url;
-          datavideo = "";
-        }
+      
     
         axios.put("https://abdelwahebbouden.com/api/update/post/"+id, {
             numberr:numberr,
             title: title,
             content: content,
-            video:datavideo,
+            video:res.data.url,
           })
           .then((res) => {
             if (res.data === "post updated") {
@@ -98,7 +88,7 @@ export class updatepostes extends Component {
           onClick={() => this.handleShow()}
           id="postbutton1"
         >
-          Modifier le texte
+          Modifier la bonde anance
         </Button>
 
         <Modal show={show} onHide={() => this.handleClose()}>

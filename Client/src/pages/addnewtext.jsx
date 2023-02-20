@@ -16,9 +16,9 @@ export class addnewtext extends Component {
       imageselected: [],
       title: "",
       content: "",
-      bigTitle:""
-     
-     
+      bigTitle: ""
+
+
     };
   }
   handleClose() {
@@ -38,54 +38,43 @@ export class addnewtext extends Component {
     const formData = new FormData();
     formData.append("file", imageselected);
     formData.append("upload_preset", "kgiezron");
-    if(imageselected.length>0){
-    await axios
-      .post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formData)
-      .then((res) => {
-        if (res.data.url.slice(res.data.url.length - 4) === ".mp4") {
-          dataimage = "";
-          datavideo = res.data.url;
-        } else if (
-          res.data.url.slice(res.data.url.length - 4) === ".png" ||
-          res.data.url.slice(res.data.url.length - 4) === ".jpg"
-        ) {
-          dataimage = res.data.url;
-          datavideo = "";
-        }
-        
-        axios.post("https://abdelwahebbouden.com/api/Create/NewPosteText", {
-            bigTitle:bigTitle,
+    if (imageselected.length > 0) {
+      await axios
+        .post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formData)
+        .then((res) => {
+
+          console.log(res.data.url)
+          axios.post("https://abdelwahebbouden.com/api/Create/NewPosteText", {
+            bigTitle: bigTitle,
             title: title,
             content: content,
-            imagees: dataimage,
+            imagees: res.data.url,
           })
-          .then((res) => {
-            if (res.data === "poste done") {
-              window.location.href = "https://abdelwahebbouden.com";
-            }
-           
-          })
-        
-          
-          })
-        }else{
-            axios.post("https://abdelwahebbouden.com/api/Create/NewPosteText", {
-            bigTitle:bigTitle,
-            title: title,
-            content: content,
-            image: "",
-          })
-          .then((res) => {
-            if (res.data === "poste done") {
-              window.location.href = "https://abdelwahebbouden.com";
-            }
-            console.log(res)
-            console.log(res)
-          }).catch((err)=>{
-            console.log(err)
-          })
-        }
-   
+            .then((res) => {
+              if (res.data === "poste done") {
+                window.location.href = "https://abdelwahebbouden.com";
+              }
+
+            })
+
+
+        })
+    } else {
+      axios.post("https://abdelwahebbouden.com/api/Create/NewPosteText", {
+        bigTitle: bigTitle,
+        title: title,
+        content: content,
+        image: "undefined",
+      })
+        .then((res) => {
+          if (res.data === "poste done") {
+            window.location.href = "https://abdelwahebbouden.com";
+          }
+        }).catch((err) => {
+          console.log(err)
+        })
+    }
+
 
     this.handleClose();
   }
@@ -93,7 +82,7 @@ export class addnewtext extends Component {
     const { show } = this.state;
     return (
       <>
-        
+
         <Button
           variant="primary"
           onClick={() => this.handleShow()}

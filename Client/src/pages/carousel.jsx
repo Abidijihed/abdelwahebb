@@ -68,9 +68,10 @@ export function ControlledCarousel() {
           
           </Row>
           </Col>
-          {token !== null ? <Updatecasting post={el} /> : null}
 
       </Row>
+        {token !== null ? <Updatecasting post={el} /> : null}
+
       {token !== null ? (
         <Button
           variant="primary"

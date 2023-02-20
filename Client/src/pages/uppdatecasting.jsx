@@ -84,7 +84,7 @@ export class updatepostes extends Component {
           onClick={() => this.handleShow()}
           id="postbutton1"
         >
-          Modifier le texte
+          Modifier le casting
         </Button>
 
         <Modal show={show} onHide={() => this.handleClose()}>

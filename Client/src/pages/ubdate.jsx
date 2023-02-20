@@ -42,23 +42,11 @@ export class addnewtext extends Component {
     await axios
       .post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formData)
       .then((res) => {
-        console.log(res.data)
-        if (res.data.url.slice(res.data.url.length - 4) === ".mp4") {
-          dataimage = "";
-          datavideo = res.data.url;
-        } else if (
-          res.data.url.slice(res.data.url.length - 4) === ".png" ||
-          res.data.url.slice(res.data.url.length - 4) === ".jpg"
-        ) {
-          dataimage = res.data.url;
-          datavideo = "";
-        }
-        console.log(dataimage)
         axios.put("https://abdelwahebbouden.com/api/get/updatepostText/"+id, {
             bigTitle:bigTitle,
             title: title,
             content: content,
-            imagees: "http://cinematunisien.com/wp-content/uploads/2019/06/Abdelwaheb-Bouden-2.jpg",
+            imagees: res.data.url,
           })
           .then((res) => {
             if (res.data === "update done") {
@@ -74,12 +62,12 @@ export class addnewtext extends Component {
             bigTitle:bigTitle,
             title: title,
             content: content,
-            imagees: "http://cinematunisien.com/wp-content/uploads/2019/06/Abdelwaheb-Bouden-2.jpg",
+            imagees: "undefinde",
           })
           .then((res) => {
-            // if (res.data === "update done") {
-            //   window.location.href = "https://abdelwahebbouden.com/";
-            // }
+            if (res.data === "update done") {
+              window.location.href = "https://abdelwahebbouden.com/";
+            }
             console.log(res)
           }).catch((err)=>{
             console.log(err)
