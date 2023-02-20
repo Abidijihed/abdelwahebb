@@ -1,6 +1,7 @@
 USE abdelwaheb_db;
 
-CREATE TABLE  casting(
+DROP TABLE IF EXISTS casting;
+ CREATE TABLE  casting(
     id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     content VARCHAR(255)NOT NULL,
