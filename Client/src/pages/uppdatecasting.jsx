@@ -45,22 +45,21 @@ export class updatepostes extends Component {
          
             title: title,
             content: content,
-            imagee:res.data.url,
+            video:res.data.url,
           })
           .then((res) => {
-            // if (res.data === "post updated") {
-            //   window.location.href = "https://abdelwahebbouden.com/";
-            // }
+            if (res.data === "post updated") {
+              window.location.href = "https://abdelwahebbouden.com/";
+            }
            console.log(res)
           })
         
           })
         }else{
             axios.put("https://abdelwahebbouden.com/api/update/post/"+id, {
-            numberr:numberr,
             title: title,
             content: content,
-            imagee:"",
+            video:props.post.video,
           })
           .then((res) => {
             if (res.data === "post updated") {

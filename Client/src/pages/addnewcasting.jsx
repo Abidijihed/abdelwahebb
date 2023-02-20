@@ -32,26 +32,45 @@ export class addnewcasting extends Component {
     const formData = new FormData();
     formData.append("file", imageselected);
     formData.append("upload_preset", "kgiezron");
-    await axios
-      .post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formData)
-      .then((res) => {
-        axios
-          .post("https://abdelwahebbouden.com/api/addnew/casting", {
-            title: title,
-            content: content,
-            video: res.data.url,
-          })
-          .then((res) => {
-            console.log(res)
-            if (res.data === "poste done") {
-              window.location.href = "https://abdelwahebbouden.com/";
-            }
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      });
-
+if (imageselected.length>0){
+  await axios
+    .post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formData)
+    .then((res) => {
+      axios
+        .post("https://abdelwahebbouden.com/api/addnew/casting", {
+          title: title,
+          content: content,
+          video: res.data.url,
+        })
+        .then((res) => {
+          console.log(res);
+          if (res.data === "poste done") {
+            window.location.href = "https://abdelwahebbouden.com/";
+          }
+        })
+      
+        .catch((err) => {
+          console.log(err);
+        })
+      
+    })
+}else{
+          axios.post("https://abdelwahebbouden.com/api/addnew/casting", {
+          title: title,
+          content: content,
+          video: "",
+        })
+        .then((res) => {
+          console.log(res);
+          if (res.data === "poste done") {
+            window.location.href = "https://abdelwahebbouden.com/";
+          }
+        })
+      
+        .catch((err) => {
+          console.log(err);
+        })
+}
     this.handleClose();
   }
   render() {
