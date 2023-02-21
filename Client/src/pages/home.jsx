@@ -231,7 +231,7 @@ export function Home() {
             <Carousel />
           </div>
           <PageTitle heading="Vous voulez nous contacter ?">
-            Complete this form and we will get back to you pour le casting.
+            Complétez ce formulaire et nous vous recontacterons pour le casting.
           </PageTitle>
           <form className="mx-auto mt-12 max-w-3xl text-center">
             <div className="mb-8 flex gap-8">
