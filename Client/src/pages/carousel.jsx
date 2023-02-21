@@ -45,7 +45,7 @@ export function ControlledCarousel() {
           <Col>
             {el.imagee ? <img src={el.imagee} /> : <img src={image1} />}
           </Col>
-          <Col>
+          <Col id='origincol'>
             <Row>
               <Col sm={4}>
                 <Typography
@@ -66,8 +66,7 @@ export function ControlledCarousel() {
               </Col>
             </Row>
           </Col>
-        </Row>
-        <div>
+          <Row></Row>
           {token !== null ? <Updatecasting post={el} id="postbutton3" /> : null}
 
           {token !== null ? (
@@ -79,7 +78,7 @@ export function ControlledCarousel() {
               Supprimer
             </Button>
           ) : null}
-        </div>
+        </Row>
       </>
     );
   })  }
