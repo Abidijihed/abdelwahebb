@@ -58,19 +58,18 @@ Footer.defaultProps = {
       name: "facebook",
       path: "https://www.facebook.com/abdelwaheb.bouden.14",
     },
-   
+
     {
       color: "purple",
       name: "instagram",
       path: "https://www.instagram.com/abdelwaheb.bouden/?hl=fr",
     },
-    
+
     {
       color: "red",
       name: "youtube",
       path: "https://www.youtube.com/@abdelwahebbouden2266",
     },
-    
   ],
   menus: [
     {
@@ -79,7 +78,6 @@ Footer.defaultProps = {
     {
       name: "other resources",
       items: [
-        
         {
           name: "Contact Us",
           path: "",
@@ -88,11 +86,7 @@ Footer.defaultProps = {
     },
   ],
   copyright: (
-    <>
-      Copyright © {2023} Adelwaheb BOUDEN *****  Jihed Abidi
-      
-      .
-    </>
+    <>Copyright © {2023} Adelwaheb BOUDEN ***** Développeur Jihed Abidi .</>
   ),
 };
 
