@@ -56,6 +56,8 @@ export class updatepostes extends Component {
         
           })
         }else{
+                          console.log(this.props);
+
             axios
               .put("https://abdelwahebbouden.com/api/update/casting/"+ id, {
                 title: title,
@@ -83,7 +85,7 @@ export class updatepostes extends Component {
         <Button
           variant="primary"
           onClick={() => this.handleShow()}
-          id="postbutton1"
+          id="postbutton3"
         >
           Modifier le casting
         </Button>
