@@ -48,27 +48,29 @@ export class updatepostes extends Component {
             video:res.data.url,
           })
           .then((res) => {
-            if (res.data === "post updated") {
-              window.location.href = "https://abdelwahebbouden.com/";
-            }
+            // if (res.data === "post updated") {
+            //   window.location.href = "https://abdelwahebbouden.com/";
+            // }
            console.log(res)
           })
         
           })
         }else{
-            axios.put("https://abdelwahebbouden.com/api/update/post/"+id, {
-            title: title,
-            content: content,
-            video:this.props.post.video,
-          })
-          .then((res) => {
-            if (res.data === "post updated") {
-              window.location.href = "https://abdelwahebbouden.com/";
-            }
-            console.log(res)
-          }).catch((err)=>{
-            console.log(err)
-          })
+            axios
+              .put("https://abdelwahebbouden.com/api/update/casting/"+ id, {
+                title: title,
+                content: content,
+                video: this.props.post.video,
+              })
+              .then((res) => {
+                // if (res.data === "post updated") {
+                //   window.location.href = "https://abdelwahebbouden.com/";
+                // }
+                console.log(res);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
         }
    
 
@@ -85,13 +87,11 @@ export class updatepostes extends Component {
         >
           Modifier le casting
         </Button>
-
         <Modal show={show} onHide={() => this.handleClose()}>
           <Modal.Header closeButton>
             <Modal.Title>Modal heading</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-           
             <Form.Group className="mb-3" controlId="formBasicTitle">
               <Form.Label>Sous Titre</Form.Label>
               <Form.Control
@@ -142,7 +142,7 @@ export class updatepostes extends Component {
               onClick={() => this.addnewpost()}
               id="postbutton"
             >
-              Sauvgarder 
+              Sauvgarder
             </Button>
           </Modal.Footer>
         </Modal>

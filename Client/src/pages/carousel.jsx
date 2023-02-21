@@ -39,50 +39,47 @@ export function ControlledCarousel() {
   return (
     <Container>
   {  casting.map((el)=>{
-    return(
+    return (
       <>
-<Row>
-        <Col>
-         { el.imagee ? <img src={el.imagee} />:<img src={image1} />}
-        </Col>
-        <Col>
-
-          <Row>
-            <Col sm={4}>
-              <Typography
-                variant="h3"
-                className="mb-3 font-bold"
-                color="blue-gray"
-              >
-                {el.title}
-              </Typography>
-              <Typography className="mb-8 font-normal text-blue-gray-500">
-                {el.content}
-              </Typography>
-            </Col>
-            <Col sm={8}>
-              <video width="320" height="240" controls>
-                <source src={el.video} type="video/mp4" />
-              </video>
-            </Col>
-          
-          </Row>
+        <Row>
+          <Col>
+            {el.imagee ? <img src={el.imagee} /> : <img src={image1} />}
           </Col>
+          <Col>
+            <Row>
+              <Col sm={4}>
+                <Typography
+                  variant="h3"
+                  className="mb-3 font-bold"
+                  color="blue-gray"
+                >
+                  {el.title}
+                </Typography>
+                <Typography className="mb-8 font-normal text-blue-gray-500">
+                  {el.content}
+                </Typography>
+              </Col>
+              <Col sm={8}>
+                <video width="320" height="240" controls>
+                  <source src={el.video} type="video/mp4" />
+                </video>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+        {token !== null ? <Updatecasting post={el} id="postbutton3" /> : null}
 
-      </Row>
-        {token !== null ? <Updatecasting post={el} /> : null}
-
-      {token !== null ? (
-        <Button
-          variant="primary"
-          onClick={() => deletecasting(el.id)}
-          id="postbutton2"
-        >
-          Supprimer
-        </Button>
-      ) : null}
-     </>
-    )
+        {token !== null ? (
+          <Button
+            variant="primary"
+            onClick={() => deletecasting(el.id)}
+            id="postbutton2"
+          >
+            Supprimer
+          </Button>
+        ) : null}
+      </>
+    );
   })  }
       {token !== null ? <AddnewCasting /> : null}
     </Container>
