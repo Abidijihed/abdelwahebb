@@ -46,7 +46,7 @@ export function ControlledCarousel() {
       <>
         <Row id="origincol">
           <Col>
-            {el.created_at.slice(0,9)}
+            {el.created_at.slice(0,20).split("T")}
             {el.imagee ? <img src={el.imagee} /> : null}
           </Col>
           <Col>
