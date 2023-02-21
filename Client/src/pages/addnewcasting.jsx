@@ -29,6 +29,7 @@ export class addnewcasting extends Component {
   async addnewpost() {
     const { imageselected, title, content } =
       this.state;
+      console.log(imageselected)
     const formData = new FormData();
     formData.append("file", imageselected);
     formData.append("upload_preset", "kgiezron");

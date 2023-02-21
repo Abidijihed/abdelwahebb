@@ -30,7 +30,7 @@ export class updatepostes extends Component {
     var id=this.props.post.id
     const { imageselected, title, content } =
       this.state;
-  
+  console.log(imageselected);
     const formData = new FormData();
     formData.append("file", imageselected);
     formData.append("upload_preset", "kgiezron");
@@ -52,7 +52,6 @@ export class updatepostes extends Component {
             // }
            console.log(res)
           })
-                                  console.log(res.data.url);
 
           })
         }else{
