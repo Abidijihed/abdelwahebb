@@ -45,8 +45,10 @@ export function ControlledCarousel() {
     return (
       <>
         <Row id="origincol">
-          {el.created_at}
-          <Col>{el.imagee ? <img src={el.imagee} /> : null}</Col>
+          <Col>
+            {el.created_at}
+            {el.imagee ? <img src={el.imagee} /> : null}
+          </Col>
           <Col>
             <Row>
               <Col sm={4}>
@@ -62,7 +64,7 @@ export function ControlledCarousel() {
                 </Typography>
               </Col>
               <Col sm={8}>
-                <video width="320" height="240" controls>
+                <video width="400" height="400" controls>
                   <source src={el.video} type="video/mp4" />
                 </video>
               </Col>
