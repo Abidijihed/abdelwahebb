@@ -54,3 +54,9 @@ div#carousel {
             float: right !important;
             background-color: rgb(255, 196, 0) !important;
 }
+#origincol{
+    margin-bottom: 50px;
+}
+#mybuttons{
+    justify-content: space-between;
+}

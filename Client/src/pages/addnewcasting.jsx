@@ -29,11 +29,11 @@ export class addnewcasting extends Component {
   async addnewpost() {
     const { imageselected, title, content } =
       this.state;
-      console.log(imageselected.length)
+      
     const formData = new FormData();
     formData.append("file", imageselected);
     formData.append("upload_preset", "kgiezron");
-if (imageselected.length>0){
+if (imageselected){
   await axios
     .post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formData)
     .then((res) => {
@@ -48,6 +48,7 @@ if (imageselected.length>0){
           if (res.data === "poste done") {
             window.location.href = "https://abdelwahebbouden.com/";
           }
+          console.log(res.data.url)
         })
       
         .catch((err) => {

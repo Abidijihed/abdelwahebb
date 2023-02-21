@@ -41,11 +41,11 @@ export function ControlledCarousel() {
   {  casting.map((el)=>{
     return (
       <>
-        <Row>
+        <Row id="origincol">
           <Col>
             {el.imagee ? <img src={el.imagee} /> : <img src={image1} />}
           </Col>
-          <Col id='origincol'>
+          <Col>
             <Row>
               <Col sm={4}>
                 <Typography
@@ -66,18 +66,30 @@ export function ControlledCarousel() {
               </Col>
             </Row>
           </Col>
-          <Row></Row>
-          {token !== null ? <Updatecasting post={el} id="postbutton3" /> : null}
-
-          {token !== null ? (
-            <Button
-              variant="primary"
-              onClick={() => deletecasting(el.id)}
-              id="postbutton2"
-            >
-              Supprimer
-            </Button>
-          ) : null}
+          <Row id='mybuttons'>
+            <Col xs={3} md={3}>
+              xs=12 md=8
+            </Col>
+            <Col xs={3} md={3}>
+              xs=6 md=3
+            </Col>
+            <Col xs={3} md={3}>
+              {token !== null ? (
+                <Button
+                  variant="primary"
+                  onClick={() => deletecasting(el.id)}
+                  id="postbutton2"
+                >
+                  Supprimer
+                </Button>
+              ) : null}
+            </Col>
+            <Col xs={3} md={3}>
+              {token !== null ? (
+                <Updatecasting post={el} id="postbutton3" />
+              ) : null}
+            </Col>
+          </Row>
         </Row>
       </>
     );

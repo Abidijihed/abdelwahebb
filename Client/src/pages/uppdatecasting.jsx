@@ -30,11 +30,11 @@ export class updatepostes extends Component {
     var id=this.props.post.id
     const { imageselected, title, content } =
       this.state;
-  console.log(imageselected);
+  console.log(imageselected.length);
     const formData = new FormData();
     formData.append("file", imageselected);
     formData.append("upload_preset", "kgiezron");
-    if(imageselected.length>0){
+    if(imageselected){
     await axios
       .post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formData)
       .then((res) => {
