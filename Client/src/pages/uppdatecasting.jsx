@@ -42,7 +42,7 @@ export class updatepostes extends Component {
          
             title: title,
             content: content,
-            video:res.data.url,
+            imagee:res.data.url,
           })
           
           .then((res) => {

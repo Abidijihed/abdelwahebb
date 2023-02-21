@@ -45,7 +45,8 @@ export function ControlledCarousel() {
     return (
       <>
         <Row id="origincol">
-       
+          {el.created_at}
+          <Col>{el.imagee ? <img src={el.imagee} /> : null}</Col>
           <Col>
             <Row>
               <Col sm={4}>
@@ -67,8 +68,9 @@ export function ControlledCarousel() {
               </Col>
             </Row>
           </Col>
-          <Row id='mybuttons'>
-          
+          <Row id="mybuttons">
+            <Col xs={3} md={3}></Col>
+            <Col xs={3} md={3}></Col>
             <Col xs={3} md={3}>
               {token !== null ? (
                 <Button

@@ -7,9 +7,6 @@ router.put('/api/update/casting/:id',castingcontroller.updatecasting)
 router.delete('/api/delete/casting/:id',castingcontroller.deletecasting)
 
 
-router.get("/api/get/castingimage/post", castingimage.GetAllPostesimage);
-router.post("/api/addnewimage/casting", castingimage.createcastingimage);
-router.put("/api/updateimage/casting/:id", castingimage.updatecastingimage);
-router.delete("/api/deleteimage/casting/:id", castingimage.deletecastingimage);
+
 
 module.exports={castingrouter:router}

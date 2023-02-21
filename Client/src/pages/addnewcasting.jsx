@@ -42,6 +42,7 @@ if (imageselected){
           title: title,
           content: content,
           video: res.data.url,
+          image:""
         })
         .then((res) => {
           if (res.data === "poste done") {
@@ -55,20 +56,22 @@ if (imageselected){
       
     })
 }else{
-          axios.post("https://abdelwahebbouden.com/api/addnew/casting", {
-          title: title,
-          content: content,
-          video: "",
-        })
-        .then((res) => {
-          if (res.data === "poste done") {
-            window.location.href = "https://abdelwahebbouden.com/";
-          }
-        })
-      
-        .catch((err) => {
-          console.log(err);
-        })
+          axios
+            .post("https://abdelwahebbouden.com/api/addnew/casting", {
+              title: title,
+              content: content,
+              video: "",
+              image: ""
+            })
+            .then((res) => {
+              if (res.data === "poste done") {
+                window.location.href = "https://abdelwahebbouden.com/";
+              }
+            })
+
+            .catch((err) => {
+              console.log(err);
+            });
 }
     this.handleClose();
   }
