@@ -67,17 +67,19 @@ export function ControlledCarousel() {
             </Row>
           </Col>
         </Row>
-        {token !== null ? <Updatecasting post={el} id="postbutton3" /> : null}
+        <div>
+          {token !== null ? <Updatecasting post={el} id="postbutton3" /> : null}
 
-        {token !== null ? (
-          <Button
-            variant="primary"
-            onClick={() => deletecasting(el.id)}
-            id="postbutton2"
-          >
-            Supprimer
-          </Button>
-        ) : null}
+          {token !== null ? (
+            <Button
+              variant="primary"
+              onClick={() => deletecasting(el.id)}
+              id="postbutton2"
+            >
+              Supprimer
+            </Button>
+          ) : null}
+        </div>
       </>
     );
   })  }

@@ -15,8 +15,6 @@ export class updatepostes extends Component {
       imageselected: [],
       title: props.post.title,
       content: props.post.content,
-     
-     
     };
   }
   handleClose() {
@@ -47,16 +45,17 @@ export class updatepostes extends Component {
             content: content,
             video:res.data.url,
           })
+          
           .then((res) => {
             // if (res.data === "post updated") {
             //   window.location.href = "https://abdelwahebbouden.com/";
             // }
            console.log(res)
           })
-        
+                                  console.log(res.data.url);
+
           })
         }else{
-                          console.log(this.props);
 
             axios
               .put("https://abdelwahebbouden.com/api/update/casting/"+ id, {

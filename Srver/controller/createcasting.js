@@ -7,7 +7,7 @@ module.exports={
    })
     }),
     updatecasting:((req,res)=>{
-        const query = `UPDATE casting SET  title="${req.body.title}",content="${req.body.content}",content="${req.body.video}" WHERE id=${req.params.id}`;
+        const query = `UPDATE casting SET  title="${req.body.title}",content="${req.body.content}",video="${req.body.video}" WHERE id=${req.params.id}`;
         connection.query(query,(err,result)=>{
         err ? res.status(500).send(err):res.status(200).send('post updated')
         })
