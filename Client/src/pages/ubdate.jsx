@@ -68,7 +68,7 @@ export class addnewtext extends Component {
             if (res.data === "update done") {
               window.location.href = "https://abdelwahebbouden.com/";
             }
-            console.log(res)
+          
           }).catch((err)=>{
             console.log(err)
           })

@@ -33,7 +33,9 @@ export function ControlledCarousel() {
   },[])
   const deletecasting=(id)=>{
    axios.delete('https://abdelwahebbouden.com/api/delete/casting/'+id).then((res)=>{
-    console.log(res)
+   if (res.data === "post deleted") {
+     window.location.href = "https://abdelwahebbouden.com/";
+   }
    })
   }
   return (

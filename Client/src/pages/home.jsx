@@ -183,6 +183,7 @@ export function Home() {
           {datatext.map((el) => {
             return (
               <>
+              {console.log(el)}
                 <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
                   <Typography
                     variant="h1"

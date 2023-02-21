@@ -43,7 +43,6 @@ export class addnewtext extends Component {
         .post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formData)
         .then((res) => {
 
-          console.log(res.data.url)
           axios.post("https://abdelwahebbouden.com/api/Create/NewPosteText", {
             bigTitle: bigTitle,
             title: title,

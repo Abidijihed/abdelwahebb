@@ -70,7 +70,7 @@ export class updatepostes extends Component {
             if (res.data === "post updated") {
               window.location.href = "https://abdelwahebbouden.com/";
             }
-            console.log(res)
+            
           }).catch((err)=>{
             console.log(err)
           })

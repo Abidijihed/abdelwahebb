@@ -30,7 +30,6 @@ export class updatepostes extends Component {
     var id=this.props.post.id
     const { imageselected, title, content } =
       this.state;
-  console.log(imageselected.length);
     const formData = new FormData();
     formData.append("file", imageselected);
     formData.append("upload_preset", "kgiezron");
@@ -47,10 +46,10 @@ export class updatepostes extends Component {
           })
           
           .then((res) => {
-            // if (res.data === "post updated") {
-            //   window.location.href = "https://abdelwahebbouden.com/";
-            // }
-           console.log(res)
+            if (res.data === "post updated") {
+              window.location.href = "https://abdelwahebbouden.com/";
+            }
+           
           })
 
           })
@@ -63,10 +62,10 @@ export class updatepostes extends Component {
                 video: this.props.post.video,
               })
               .then((res) => {
-                // if (res.data === "post updated") {
-                //   window.location.href = "https://abdelwahebbouden.com/";
-                // }
-                console.log(res);
+                if (res.data === "post updated") {
+                  window.location.href = "https://abdelwahebbouden.com/";
+                }
+        ;
               })
               .catch((err) => {
                 console.log(err);

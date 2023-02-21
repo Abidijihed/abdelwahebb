@@ -44,11 +44,9 @@ if (imageselected){
           video: res.data.url,
         })
         .then((res) => {
-          console.log(res);
           if (res.data === "poste done") {
             window.location.href = "https://abdelwahebbouden.com/";
           }
-          console.log(res.data.url)
         })
       
         .catch((err) => {
@@ -63,7 +61,6 @@ if (imageselected){
           video: "",
         })
         .then((res) => {
-          console.log(res);
           if (res.data === "poste done") {
             window.location.href = "https://abdelwahebbouden.com/";
           }
