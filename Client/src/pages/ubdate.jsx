@@ -38,7 +38,7 @@ export class addnewtext extends Component {
     const formData = new FormData();
     formData.append("file", imageselected);
     formData.append("upload_preset", "kgiezron");
-    if(imageselected.length>0){
+    if(imageselected){
     await axios
       .post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formData)
       .then((res) => {
@@ -54,8 +54,6 @@ export class addnewtext extends Component {
             }
            
           })
-        
-          
           })
         }else{
             axios.put("https://abdelwahebbouden.com/api/get/updatepostText/"+id, {

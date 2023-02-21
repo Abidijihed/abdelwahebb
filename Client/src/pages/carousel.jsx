@@ -26,6 +26,7 @@ export function ControlledCarousel() {
   var token=localStorage.getItem("token")
 
   const [casting,setCasting]=useState([])
+  const [imagecasting,setImagecasting]=useEffect([])
   useEffect(()=>{
   axios.get('https://abdelwahebbouden.com/api/get/casting/post').then((res)=>{
     setCasting(res.data)
@@ -38,64 +39,65 @@ export function ControlledCarousel() {
    }
    })
   }
+
+  //  <Col xs={3} md={3}>
+  //                   xs=12 md=8
+  //                 </Col>
+  //                 <Col xs={3} md={3}>
+  //                   xs=6 md=3
+  //                 </Col>
   return (
     <Container>
-  {  casting.map((el)=>{
-    return (
-      <>
-        <Row id="origincol">
-          <Col>
-            {el.imagee ? <img src={el.imagee} /> : <img src={image1} />}
-          </Col>
-          <Col>
-            <Row>
-              <Col sm={4}>
-                <Typography
-                  variant="h3"
-                  className="mb-3 font-bold"
-                  color="blue-gray"
-                >
-                  {el.title}
-                </Typography>
-                <Typography className="mb-8 font-normal text-blue-gray-500">
-                  {el.content}
-                </Typography>
+      <Row >
+        <Col>hello</Col>
+        {casting.map((el) => {
+          return (
+            <>
+              <Col>
+                <Row id="origincol">
+                  <Col sm={4}>
+                    <Typography
+                      variant="h3"
+                      className="mb-3 font-bold"
+                      color="blue-gray"
+                    >
+                      {el.title}
+                    </Typography>
+                    <Typography className="mb-8 font-normal text-blue-gray-500">
+                      {el.content}
+                    </Typography>
+                  </Col>
+                  <Col sm={8}>
+                    <video width="320" height="240" controls>
+                      <source src={el.video} type="video/mp4" />
+                    </video>
+                  </Col>
+                </Row>
+                <Row id="mybuttons">
+                  <Col xs={3} md={3}>
+                    {token !== null ? (
+                      <Button
+                        variant="primary"
+                        onClick={() => deletecasting(el.id)}
+                        id="postbutton2"
+                      >
+                        Supprimer
+                      </Button>
+                    ) : null}
+                  </Col>
+                  <Col xs={3} md={3}>
+                    {token !== null ? (
+                      <Updatecasting post={el} id="postbutton3" />
+                    ) : null}
+                  </Col>
+                </Row>
               </Col>
-              <Col sm={8}>
-                <video width="320" height="240" controls>
-                  <source src={el.video} type="video/mp4" />
-                </video>
-              </Col>
-            </Row>
-          </Col>
-          <Row id='mybuttons'>
-            <Col xs={3} md={3}>
-              xs=12 md=8
-            </Col>
-            <Col xs={3} md={3}>
-              xs=6 md=3
-            </Col>
-            <Col xs={3} md={3}>
-              {token !== null ? (
-                <Button
-                  variant="primary"
-                  onClick={() => deletecasting(el.id)}
-                  id="postbutton2"
-                >
-                  Supprimer
-                </Button>
-              ) : null}
-            </Col>
-            <Col xs={3} md={3}>
-              {token !== null ? (
-                <Updatecasting post={el} id="postbutton3" />
-              ) : null}
-            </Col>
-          </Row>
-        </Row>
-      </>
-    );
-  })  }
+            </>
+          );
+        })}
+      
+      </Row>
+
       {token !== null ? <AddnewCasting /> : null}
     </Container>
   );

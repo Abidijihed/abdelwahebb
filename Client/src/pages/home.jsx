@@ -78,10 +78,10 @@ export function Home() {
                 className="mb-6 font-black"
                 fontWeight="400"
               >
-                Mon cinéma est d’inspiration philosophique, esthétique et
-                écologique.
-                <br />
-                <br />
+                <span id="titeltitel">
+                  Mon cinéma est d’inspiration philosophique, esthétique et
+                  écologique.
+                </span>
                 <br />
                 Nature, beauté, amour et liberté
               </Typography>
@@ -166,9 +166,6 @@ export function Home() {
           color="blue-gray"
         ></Typography>
       </div>
-      <div id="mycarouselsect">
-        <Carousel />
-      </div>
 
       <section className="relative bg-blue-gray-50/50 py-24 px-4">
         <div className="container mx-auto">
@@ -183,7 +180,6 @@ export function Home() {
           {datatext.map((el) => {
             return (
               <>
-              {console.log(el)}
                 <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
                   <Typography
                     variant="h1"
@@ -227,12 +223,15 @@ export function Home() {
 
           <br />
           <br />
-          {token !== null ? <AddanewPostText /> : null}
 
+          <div id="chechek"> {token !== null ? <AddanewPostText /> : null}</div>
           <br />
           <br />
-          <PageTitle heading="Want to contact us?">
-            Complete this form and we will get back to you .
+          <div id="mycarouselsect">
+            <Carousel />
+          </div>
+          <PageTitle heading="Vous voulez nous contacter ?">
+            Complete this form and we will get back to you pour le casting.
           </PageTitle>
           <form className="mx-auto mt-12 max-w-3xl text-center">
             <div className="mb-8 flex gap-8">
