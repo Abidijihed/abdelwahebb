@@ -59,7 +59,7 @@ export class updatepostes extends Component {
             axios.put("https://abdelwahebbouden.com/api/update/post/"+id, {
             title: title,
             content: content,
-            video:props.post.video,
+            video:this.props.post.video,
           })
           .then((res) => {
             if (res.data === "post updated") {

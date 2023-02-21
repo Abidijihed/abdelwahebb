@@ -79,7 +79,10 @@ export function Home() {
                 fontWeight="400"
               >
                 Mon cinéma est d’inspiration philosophique, esthétique et
-                écologique.<br/>
+                écologique.
+                <br />
+                <br />
+                <br />
                 Nature, beauté, amour et liberté
               </Typography>
             </div>
@@ -138,16 +141,16 @@ export function Home() {
                       </CardBody>
                     </Card>
                   </div>
-                  {token !== null ? <Updatepostes post={el}/>:null}
+                  {token !== null ? <Updatepostes post={el} /> : null}
                   {token !== null ? (
-                  <Button
-                    variant="primary"
-                    onClick={() => deletepostbandanonce(el.id)}
-                    id="postbutton2"
-                  >
-                    Supprimer
-                  </Button>
-                ) : null}
+                    <Button
+                      variant="primary"
+                      onClick={() => deletepostbandanonce(el.id)}
+                      id="postbutton2"
+                    >
+                      Supprimer
+                    </Button>
+                  ) : null}
                 </>
               );
             })}
@@ -155,16 +158,18 @@ export function Home() {
         </div>
       </section>
       {token !== null ? <AddnewPost /> : null}
-      
+
       <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
-        <Typography variant="h2" className="mb-3 font-bold" color="blue-gray">
-         
-        </Typography>
+        <Typography
+          variant="h2"
+          className="mb-3 font-bold"
+          color="blue-gray"
+        ></Typography>
       </div>
       <div id="mycarouselsect">
-      <Carousel />
+        <Carousel />
       </div>
-      
+
       <section className="relative bg-blue-gray-50/50 py-24 px-4">
         <div className="container mx-auto">
           <PageTitle heading="Mon cinéma"></PageTitle>
@@ -198,8 +203,12 @@ export function Home() {
                   </Typography>
                   <Typography className="mb-8 font-normal text-blue-gray-500">
                     {el.content}
-                  </Typography><br /><br/>
-                 {el.imagees!=="undefined" ? <img src={el.imagees}  id="myimages"/>:null}
+                  </Typography>
+                  <br />
+                  <br />
+                  {el.imagees !== "undefined" ? (
+                    <img src={el.imagees} id="myimages" />
+                  ) : null}
                 </div>
                 {token !== null ? <Ubdate post={el} /> : null}
                 {token !== null ? (
