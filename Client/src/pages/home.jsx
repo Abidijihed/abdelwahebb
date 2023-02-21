@@ -78,10 +78,9 @@ export function Home() {
                 className="mb-6 font-black"
                 fontWeight="400"
               >
-                <span id="titeltitel">
-                  Mon cinéma est d’inspiration philosophique, esthétique et
-                  écologique.
-                </span>
+                <div id="titeltitel">
+                  Mon cinéma est d’inspiration philosophique,<br/> esthétique et écologique.
+                </div>
                 <br />
                 Nature, beauté, amour et liberté
               </Typography>
@@ -157,7 +156,7 @@ export function Home() {
           </div>
         </div>
       </section>
-      {token !== null ? <AddnewPost /> : null}
+      <div id="firstsectionl"> {token !== null ? <AddnewPost /> : null}</div>
 
       <div className="mx-auto -mt-8 w-full px-4 md:w-5/12">
         <Typography
