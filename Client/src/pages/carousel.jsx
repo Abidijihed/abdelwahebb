@@ -21,12 +21,11 @@ import {
   Input,
   Textarea,
 } from "@material-tailwind/react";
-import { CLOSING } from 'ws';
 export function ControlledCarousel() {
   var token=localStorage.getItem("token")
 
   const [casting,setCasting]=useState([])
-  const [imagecasting,setImagecasting]=useEffect([])
+  const [imagecasting, setImagecasting] = useState([]);
   useEffect(()=>{
   axios.get('https://abdelwahebbouden.com/api/get/casting/post').then((res)=>{
     setCasting(res.data)
