@@ -33,7 +33,7 @@ export class addnewcasting extends Component {
     const formData = new FormData();
     formData.append("file", imageselected);
     formData.append("upload_preset", "kgiezron");
-    if(imageselected.length>0) {
+    if(imageselected.length>0 || imageselected) {
   await axios
     .post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formData)
     .then((res) => {
