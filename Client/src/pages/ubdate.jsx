@@ -38,7 +38,7 @@ export class addnewtext extends Component {
     const formData = new FormData();
     formData.append("file", imageselected);
     formData.append("upload_preset", "kgiezron");
-    if(imageselected){
+    if(imageselected.length>0){
     await axios
       .post("https://api.cloudinary.com/v1_1/dm1xlu8ce/upload", formData)
       .then((res) => {
